@@ -1,0 +1,25 @@
+.logo{
+    width: 100%;
+}
+
+.navbar-brand{
+    text-align: left;
+    width: 100px;
+}
+
+.usuario{
+    width: 40%;
+}
+
+.cuenta-usuario{
+    text-align: right;
+    width: 100px;
+}
+
+.opc-cuenta{
+    width: 10%;
+}
+
+.dropdown-menu{
+    width: max-content;
+}
