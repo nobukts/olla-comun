@@ -1,16 +1,18 @@
-import { Col, Row, Accordion } from "react-bootstrap";
+import {Accordion, Col, Row } from "react-bootstrap";
 import ContenedorImagen from "../components/ContenedorImagen/ContenedorImagen";
 
 import './Inicio.css'
 
 function Inicio() {
   return (
-    <div >
-      <Row style={{display: "flex", alignItems: "center",justifyContent: "center", height: "100%"}}>
-        <Col > <ContenedorImagen/> </Col>
+    <div>
+      <Row>
         <Col>
-          <h1>Información general</h1>
-          <Accordion defaultActiveKey="0" className="bloq-info">
+          <ContenedorImagen/>
+        </Col>
+        <Col>
+        <h1>Información General</h1>
+        <Accordion defaultActiveKey="0" className="bloq-info">
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. ¿Qué es una olla común?</Accordion.Header>
             <Accordion.Body>
@@ -30,7 +32,7 @@ function Inicio() {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-      </Col>
+        </Col>
       </Row>
     </div>
   );

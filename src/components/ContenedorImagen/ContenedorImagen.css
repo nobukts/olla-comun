@@ -1,5 +1,7 @@
 .oc-img img{
-    margin: 1%;
+    padding: 1%;
+    padding-top: 10%;
+    padding-left: 2%;
     width: 100%;
 }
 

@@ -1,9 +1,11 @@
 .bloq-info{
-    margin: 1%;
+    padding: 2%;
+    width: 100%;
+
 }
 
 h1{
+    width: 100%;
     text-align: center;
-    width: 90%;
-    padding: 4%;
+    padding-top: 15%;
 }
