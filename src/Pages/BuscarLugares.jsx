@@ -1,6 +1,9 @@
-import CartaInformacion from "../CartaInformacion/CartaInformacion";
-import Dropdown from 'react-bootstrap/Dropdown';
+//CSS
 import './BuscarLugares-Style.css';
+
+//REACT
+import CartaInformacion from "../components/CartaInformacion/CartaInformacion"
+import Dropdown from 'react-bootstrap/Dropdown';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 
@@ -21,7 +24,7 @@ function BuscarLugares() {
             </Dropdown.Menu>
             </Dropdown>
             </Col>
-            <Col><span>Busqueda de ollas comunes</span></Col>
+            <Col><h3>Busqueda de ollas comunes</h3></Col>
             <Col><button>Mapa de busqueda</button></Col>
             
         </div>

@@ -1,25 +1,31 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import BarraNavegacion from "./components/BarraNavegacion/BarraNavegacion";
-import Home from "./components/Pages/Home";
-import BuscarLugares from "./components/Pages/BuscarLugares";
-import AñadirOllaComun from "./components/Pages/AñadirOllaComun";
-import IniciarSesion from "./components/Pages/IniciarSesion";
-import CrearCuenta from "./components/Pages/CrearCuenta";
+
+import Inicio from "./Pages/Inicio";
+import BuscarLugares from "./Pages/BuscarLugares";
+import AñadirOllaComun from "./Pages/AñadirOllaComun";
+import IniciarSesion from "./Pages/IniciarSesion";
+import CrearCuenta from "./Pages/CrearCuenta";
+import PiePagina from "./components/PiePagina/PiePagina";
+
+import "./Apps.css"
 
 function Apps() {
   return (
     <div className="Apps">
+      <div className="content-wrap">
         <Router>
-            <BarraNavegacion/>
-            <Routes>
-                <Route path="/" element={<Home/>} />
-                <Route path="BuscarLugares" element={<BuscarLugares/>} />
-                <Route path="AñadirOllaComun" element={<AñadirOllaComun/>} />
-                <Route path="IniciarSesion" element={<IniciarSesion/>} />
-                <Route path="CrearCuenta" element={<CrearCuenta/>} />
-            </Routes>
-        </Router>
-      
+              <BarraNavegacion/>
+              <Routes>
+                  <Route path="/" element={<Inicio/>} />
+                  <Route path="BuscarLugares" element={<BuscarLugares/>} />
+                  <Route path="AñadirOllaComun" element={<AñadirOllaComun/>} />
+                  <Route path="IniciarSesion" element={<IniciarSesion/>} />
+                  <Route path="CrearCuenta" element={<CrearCuenta/>} />
+              </Routes>
+          </Router>
+      </div>
+      <PiePagina/>
     </div>
   );
 }

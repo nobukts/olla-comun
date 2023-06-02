@@ -1,8 +1,7 @@
-import React from "react";
-import ContenedorImagen from "../ContenedorImagen/ContenedorImagen";
+import ContenedorImagen from "../components/ContenedorImagen/ContenedorImagen";
 import Accordion from "react-bootstrap/Accordion";
 
-function Home() {
+function Inicio() {
   return (
     <div>
       <ContenedorImagen />
@@ -36,4 +35,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Inicio;
