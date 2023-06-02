@@ -1,0 +1,16 @@
+.Barra-de-busqueda{
+    margin: 0.5rem;
+    padding: 0.5rem;
+    display: flex;
+    text-align: center;
+    border: 2px solid black;
+}
+
+.Zona-cartas{
+    margin: 0.5rem;
+}
+
+.carta{
+    margin: 20px;
+    padding: 20px;
+}
