@@ -11,7 +11,7 @@ function Inicio() {
           <ContenedorImagen/>
         </Col>
         <Col>
-        <h1>Información General</h1>
+        <h1 className="info-g">Información General</h1>
         <Accordion defaultActiveKey="0" className="bloq-info">
           <Accordion.Item eventKey="0">
             <Accordion.Header>1. ¿Qué es una olla común?</Accordion.Header>

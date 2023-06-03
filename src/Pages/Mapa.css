@@ -1,9 +1,13 @@
-.Mapa {
-    height: 100vh;
-    width: 100vw;
-  }
-  
 .map-container {
-height: 100%;
-width: 100%;
+  height: 50vh;
+  width: 100%;
+}
+
+.mapa{
+  transform: translate(5%, 20%);
+  width: 90%;
+}
+
+.ti-mapa{
+  text-align: center;
 }
