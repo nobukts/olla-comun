@@ -4,7 +4,6 @@ import "./BarraLateral.css";
 //React
 import React from "react";
 import { Nav } from "react-bootstrap";
-//import { withRouter } from "react-router";
 
 function BarraLateral() {
   return (
@@ -34,5 +33,4 @@ function BarraLateral() {
   );
 }
 
-//const sidebar = withRouter(Side);
 export default BarraLateral;

@@ -8,6 +8,9 @@ import IniciarSesion from "./Pages/IniciarSesion";
 import CrearCuenta from "./Pages/CrearCuenta";
 import PiePagina from "./components/PiePagina/PiePagina";
 import Mapa from "./Pages/Mapa"
+import RecuperarCuenta1 from "./Pages/RecuperarCuenta1"
+import RecuperarCuenta2 from "./Pages/RecuperarCuenta2"
+import RecuperarCuenta3 from "./Pages/RecuperarCuenta3"
 
 import "./Apps.css"
 
@@ -24,6 +27,9 @@ function Apps() {
                   <Route path="IniciarSesion" element={<IniciarSesion/>} />
                   <Route path="CrearCuenta" element={<CrearCuenta/>} />
                   <Route path="Mapa" element={<Mapa/>} />
+                  <Route path="RecuperarCuenta1" element={<RecuperarCuenta1/>}/>
+                  <Route path="RecuperarCuenta2" element={<RecuperarCuenta2/>}/>
+                  <Route path="RecuperarCuenta3" element={<RecuperarCuenta3/>}/>
               </Routes>
           </Router>
       </div>
