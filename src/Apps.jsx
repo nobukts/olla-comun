@@ -7,6 +7,7 @@ import AñadirOllaComun from "./Pages/AñadirOllaComun";
 import IniciarSesion from "./Pages/IniciarSesion";
 import CrearCuenta from "./Pages/CrearCuenta";
 import PiePagina from "./components/PiePagina/PiePagina";
+import Mapa from "./Pages/Mapa"
 
 import "./Apps.css"
 
@@ -22,6 +23,7 @@ function Apps() {
                   <Route path="AñadirOllaComun" element={<AñadirOllaComun/>} />
                   <Route path="IniciarSesion" element={<IniciarSesion/>} />
                   <Route path="CrearCuenta" element={<CrearCuenta/>} />
+                  <Route path="Mapa" element={<Mapa/>} />
               </Routes>
           </Router>
       </div>
