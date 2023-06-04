@@ -18,7 +18,7 @@ const CrearCuenta = () => {
 
             <div>
                 <label>Nombre</label>
-                <input type="text" {...register('nombre', {
+                <input type="text" placeholder="Nombre" {...register('nombre', {
 
                     required: true,
                     
@@ -30,7 +30,7 @@ const CrearCuenta = () => {
 
             <div>
                 <label>Correo</label>
-                <input type="text" {...register('correo', {
+                <input type="text" placeholder="Correo" {...register('correo', {
 
                     required: true,
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
@@ -44,7 +44,7 @@ const CrearCuenta = () => {
 
             <div>
                 <label>Telefono</label>
-                <input type="text" {...register('telefono', {
+                <input type="text" placeholder="Telefono" {...register('telefono', {
 
                     required: true,
                     
@@ -56,7 +56,7 @@ const CrearCuenta = () => {
 
             <div>
                 <label>Contraseña</label>
-                <input type="password"  {...register('contrasena', {
+                <input type="password" placeholder="Contraseña"  {...register('contrasena', {
 
                     required: true
 
@@ -69,10 +69,10 @@ const CrearCuenta = () => {
             <div>
             
                 <label>Confirmar Contraseña</label>
-                <input type="password" {...register('confContrasena', {
+                <input type="password" placeholder="Confirmar Contraseña" {...register('confContrasena', {
 
                     required: true,
-                    validate: (val = watch('confContrasena') ) => { 
+                    validate: (val = string /*watch('confContrasena')*/ ) => { 
 
                         if (watch ('contrasena') !=val ) {
 

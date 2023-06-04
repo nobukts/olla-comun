@@ -19,7 +19,7 @@ const IniciarSesion = () => {
 
             <div>
                 <label>Correo</label>
-                <input type="text" {...register('correo', {
+                <input type="text" placeholder="Correo" {...register('correo', {
 
                     required: true,
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
@@ -33,7 +33,7 @@ const IniciarSesion = () => {
 
             <div>
                 <label>Contraseña</label>
-                <input type="password" {...register('contrasena', {
+                <input type="password" placeholder="Contraseña" {...register('contrasena', {
 
                     required: true
 
