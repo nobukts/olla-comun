@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import {Link} from "react-router-dom";
+import "./errorPagina_styles.css";
 
 const CrearCuenta = () => {
 
@@ -24,7 +26,7 @@ const CrearCuenta = () => {
                     
                 } ) } />
 
-                {errors.nombre?.type === 'required' && <p>El nombre es requerido</p> }
+                {errors.nombre?.type === 'required' && <p class="errorP">El nombre es requerido</p> }
 
             </div>
 
@@ -37,8 +39,8 @@ const CrearCuenta = () => {
 
                 } ) } />
 
-                {errors.correo?.type === 'required' && <p>El correo es requerido</p> }
-                {errors.correo?.type === 'pattern' && <p>El formato del email es incorrecto</p> }
+                {errors.correo?.type === 'required' && <p class="errorP" >El correo es requerido</p> }
+                {errors.correo?.type === 'pattern' && <p class="errorP" >El formato del email es incorrecto</p> }
 
             </div>
 
@@ -47,10 +49,12 @@ const CrearCuenta = () => {
                 <input type="text" placeholder="Telefono" {...register('telefono', {
 
                     required: true,
+                    pattern: /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/
                     
                 } ) } />
 
-                {errors.telefono?.type === 'required' && <p>El telefono es requerido</p> }
+                {errors.telefono?.type === 'required' && <p class="errorP" >El telefono es requerido</p> }
+                {errors.telefono?.type === 'pattern' && <p class="errorP" >El formato del telefono es incorrecto</p> }
 
             </div>
 
@@ -58,11 +62,13 @@ const CrearCuenta = () => {
                 <label>Contraseña</label>
                 <input type="password" placeholder="Contraseña"  {...register('contrasena', {
 
-                    required: true
+                    required: true,
+                    minLength: 8
 
                 } ) } />
 
-                {errors.contrasena?.type === 'required' && <p>La contraseña es requerida</p> }
+                {errors.contrasena?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
+                {errors.contrasena?.type === 'minLength' && <p class="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
 
             </div>
 
@@ -86,12 +92,14 @@ const CrearCuenta = () => {
 
                 
 
-                {errors.confContrasena?.type === 'required' && <p>La contraseña es requerida</p> }
-                {errors.confContrasena && <p>Las contraseñas no coinciden</p> }
+                {errors.confContrasena?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
+                {errors.confContrasena && <p class="errorP" >Las contraseñas no coinciden</p> }
 
             </div>
 
             <input type="submit" value="Crear Cuenta" />
+
+            <p>¿Tienes una cuenta? <Link to="/IniciarSesion">Iniciar sesión</Link> </p>
 
         </form>
 

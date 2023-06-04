@@ -22,11 +22,13 @@ const RecuperarCuenta3 = () => {
                 <label>Nueva contraseña</label>
                 <input type="password" placeholder="Nueva contraseña" {...register('newContra', {
 
-                    required: true
+                    required: true,
+                    minLength: 8
 
                 } ) } />
 
-                {errors.newContra?.type === 'required' && <p>La contraseña es requerida</p> }
+                {errors.newContra?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
+                {errors.newContra?.type === 'minLength' && <p class="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
 
             </div>
 
@@ -50,12 +52,12 @@ const RecuperarCuenta3 = () => {
 
                 
 
-                {errors.confNewContra?.type === 'required' && <p>La contraseña es requerida</p> }
-                {errors.confNewContra && <p>Las contraseñas no coinciden</p> }
+                {errors.confNewContra?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
+                {errors.confNewContra && <p class="errorP" >Las contraseñas no coinciden</p> }
 
             </div>
 
-            <input type="submit" value="Enviar"/>
+            <input type="submit" value="Enviar LINKEARLO A IniciarSesion"/>
 
             <p>¿No tienes una cuenta? <Link to="/CrearCuenta">Crear ahora</Link> </p>
 

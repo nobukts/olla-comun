@@ -22,11 +22,13 @@ const RecuperarCuenta2 = () => {
                 <label>Código</label>
                 <input type="text" placeholder="Código" {...register('codigo', {
 
-                    required: true
+                    required: true,
+                    minLength: 6
 
                 } ) } />
 
-                {errors.codigo?.type === 'required' && <p>El código es requerido</p> }
+                {errors.codigo?.type === 'required' && <p class="errorP" >El código es requerido</p> }
+                {errors.codigo?.type === 'minLength' && <p class="errorP" >El código debe tener al menos 6 caracteres</p> }
 
             </div>
 

@@ -26,8 +26,8 @@ const IniciarSesion = () => {
 
                 } ) } />
 
-                {errors.correo?.type === 'required' && <p>El correo es requerido</p> }
-                {errors.correo?.type === 'pattern' && <p>El formato del email es incorrecto</p> }
+                {errors.correo?.type === 'required' && <p class="errorP" >El correo es requerido</p> }
+                {errors.correo?.type === 'pattern' && <p class="errorP" >El formato del email es incorrecto</p> }
 
             </div>
 
@@ -35,11 +35,13 @@ const IniciarSesion = () => {
                 <label>Contraseña</label>
                 <input type="password" placeholder="Contraseña" {...register('contrasena', {
 
-                    required: true
+                    required: true,
+                    minLength: 8
 
                 } ) } />
 
-                {errors.contrasena?.type === 'required' && <p>La contraseña es requerida</p> }
+                {errors.contrasena?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
+                {errors.contrasena?.type === 'minLength' && <p class="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
 
             </div>
 

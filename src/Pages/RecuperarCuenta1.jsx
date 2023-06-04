@@ -27,8 +27,8 @@ const RecuperarCuenta1 = () => {
 
                 } ) } />
 
-                {errors.correo?.type === 'required' && <p>El correo es requerido</p> }
-                {errors.correo?.type === 'pattern' && <p>El formato del email es incorrecto</p> }
+                {errors.correo?.type === 'required' && <p class="errorP" >El correo es requerido</p> }
+                {errors.correo?.type === 'pattern' && <p class="errorP"  >El formato del email es incorrecto</p> }
 
             </div>
 
