@@ -11,7 +11,7 @@ export default function ContenedorImagen(){
         <div className="ex-photo">
         <figure className="oc-img">
             <img src={example_photo}/>
-            <figcaption>Olla comun realizada durante el año 2020</figcaption>
+            <figcaption>Olla común realizada durante el año 2020</figcaption>
         </figure>
 
       </div>

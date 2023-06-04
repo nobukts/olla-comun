@@ -12,7 +12,7 @@
 .direcciones{
   list-style-type: none;
   text-align: center;
-  border: 2px black solid;
+    border: 2px black solid;
 }
 
 .direcciones li{

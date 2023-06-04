@@ -1,11 +1,9 @@
-.bloq-info{
+.info-g{
+    text-align: center;
     padding: 2%;
-    width: 100%;
-
+    
 }
 
-.info-g{
-    width: 100%;
-    text-align: center;
-    padding-top: 15%;
+.info-g h1{
+    padding: 2%;
 }

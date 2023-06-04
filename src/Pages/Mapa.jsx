@@ -11,7 +11,7 @@ export default function Mapa() {
                         <h1>Listado de direcciones en formato mapa</h1> 
                     </Col>
                     <Col>
-                        <Link to="/BuscarLugares"> Volver atrás</Link>
+                        <button><Link to="/BuscarLugares"> Volver atrás</Link></button>
                     </Col>
                 </Row>
             </div>
