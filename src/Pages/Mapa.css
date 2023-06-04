@@ -1,13 +1,37 @@
-.map-container {
-  height: 50vh;
-  width: 100%;
-}
-
 .mapa{
-  transform: translate(5%, 20%);
-  width: 90%;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
 }
 
-.ti-mapa{
+.mini-titu{
+  border: 2px black solid;
   text-align: center;
+}
+
+.direcciones{
+  list-style-type: none;
+  text-align: center;
+  border: 2px black solid;
+}
+
+.direcciones li{
+  margin: 3%;
+}
+
+.barra{
+  padding: 1%;
+}
+
+.barra-titular{
+  text-align: center;
+  border: 2px black solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.col-lateral{
+  padding: 1%;
 }
