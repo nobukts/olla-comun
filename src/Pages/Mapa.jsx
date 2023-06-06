@@ -3,10 +3,16 @@ import { Col, Container, Row } from "react-bootstrap";
 import {GoogleMap, useLoadScript} from "@react-google-maps/api"
 
 import "./Mapa.css"
+import { useState } from "react";
 
 export default function Mapa() {
     const {isLoaded} = useLoadScript({
         googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
+    })
+
+    const [coordenadas, setCoordinates] = useState({
+        lat: -32.996672,
+        long: -71.501392
     })
 
     if(!isLoaded) return<div><h1>Cargando...</h1></div>
@@ -27,23 +33,16 @@ export default function Mapa() {
                 <Col className="col-lateral">
                     <h2 className="mini-titu">Listado de ollas comunes</h2>
                     <ul className="direcciones">
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
-                        <li><button>Hola</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -33.008117, long: -71.546946})}}>Olla común #1</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -33.009835, long: -71.548169})}}>Olla común #2</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -32.931153, long: -71.516647})}}>Olla común #3</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -32.933620, long: -71.516422})}}>Olla común #4</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -32.930928, long: -71.532333})}}>Olla común #5</button></li>
+                        <li><button onClick={() => {setCoordinates({lat: -33.270123, long: -71.655881})}}>Olla común #6</button></li>
                     </ul>
                 </Col>
-                <Col xs="9">
-                    <GoogleMap zoom={10} center={{lat:44,lng:-80}} mapContainerClassName="map-container">
+                <Col xs="9" className="col-map">
+                    <GoogleMap zoom={15} center={{lat:coordenadas.lat,lng:coordenadas.long}} mapContainerClassName="map-container">
 
                     </GoogleMap>
                 </Col>
