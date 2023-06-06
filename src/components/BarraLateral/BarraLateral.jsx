@@ -7,27 +7,16 @@ import { Nav } from "react-bootstrap";
 
 function BarraLateral() {
   return (
-    <div>
-      <Nav
-        className="col-md-12 d-none d-md-block bg-light sidebar"
-        activeKey="/home"
-        onSelect={(selectedKey) => alert(`selected ${selectedKey}`)}
-      >
-        <div className="sidebar-sticky"></div>
-        <Nav.Item>
-          <Nav.Link href="/home">Active</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-1">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="link-2">Link</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="disabled" disabled>
-            Disabled
-          </Nav.Link>
-        </Nav.Item>
+    <div className="lateral">
+      <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
+        
+        <div className="texto">
+          <h2>Filtro de busqueda</h2>
+          <Nav.Link className="texto" href="/">Inicio</Nav.Link>
+          <Nav.Link className="texto">Filtro N°1</Nav.Link>
+          <Nav.Link className="texto">Filtro N°2</Nav.Link>
+        </div>
+        
       </Nav>
     </div>
   );

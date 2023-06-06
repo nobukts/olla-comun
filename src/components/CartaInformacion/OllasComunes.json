@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "imagen": "./src/assets/Foto-ejemplo.jpg",
+        "titulo": "Olla Común de ñuñoa",
+        "descripcion": "La sencilla comuna de Ñuñoa alberga el Estadio Nacional Julio Martínez Prádanos, un gran estadio en el que se celebran partidos de fútbol y conciertos con artistas de renombre. El complejo circundante incluye una pista de patinaje y un diamante de béisbol. Alrededor de la arbolada Plaza Ñuñoa se pueden encontrar cafeterías al aire libre y bares animados, además de restaurantes chilenos, italianos y peruanos, y el centro comercial Portal Ñuñoa tiene restaurantes de comida rápida.",
+        "direccion": "calle ñuñoa XXX, Ñuñoa",
+        "region": "region metropolitana",
+        "numero-contacto": "+56912345678",
+        "email-contacto": "ñuñoa@chile.cl"
+    },
+    {
+        "id": 2,
+        "imagen": "./src/assets/Foto-ejemplo2.png",
+        "titulo": "Olla Común de maipú",
+        "descripcion": "Maipú es una comuna ubicada en el sector surponiente de la ciudad de Santiago, capital de Chile. Pertenece administrativamente a la provincia de Santiago, dentro de la región Metropolitana de Santiago. Según el censo del año 2017, Maipú tiene una población de 521 627 habitantes, transformándola en la segunda comuna más poblada del país después de Puente Alto.1​        El nombre de la comuna proviene de una derivación de la palabra «Maipo» (del mapudungun: maypun, lugar arado).",
+        "direccion": "calle maipú XXX, Maipú",
+        "region": "region metropolitana",
+        "numero-contacto": "+56987654321",
+        "email-contacto": "maipú@chile.cl"
+    },
+    {
+        "id": 3,
+        "imagen": "./src/assets/Foto-ejemplo.jpg",
+        "titulo": "Olla Común de rancagua",
+        "descripcion": "La sencilla comuna de rancagua alberga el Estadio Nacional Julio Martínez Prádanos, un gran estadio en el que se celebran partidos de fútbol y conciertos con artistas de renombre. El complejo circundante incluye una pista de patinaje y un diamante de béisbol. Alrededor de la arbolada Plaza rancagua se pueden encontrar cafeterías al aire libre y bares animados, además de restaurantes chilenos, italianos y peruanos, y el centro comercial Portal rancagua tiene restaurantes de comida rápida.",
+        "direccion": "calle rancagua XXX, rancagua",
+        "region": "region metropolitana",
+        "numero-contacto": "+56912345678",
+        "email-contacto": "rancagua@chile.cl"
+    },
+    {
+        "id": 4,
+        "imagen": "./src/assets/Foto-ejemplo2.png",
+        "titulo": "Olla Común de concon",
+        "descripcion": "concon es una comuna ubicada en el sector surponiente de la ciudad de Santiago, capital de Chile. Pertenece administrativamente a la provincia de Santiago, dentro de la región Metropolitana de Santiago. Según el censo del año 2017, concon tiene una población de 521 627 habitantes, transformándola en la segunda comuna más poblada del país después de Puente Alto.1​        El nombre de la comuna proviene de una derivación de la palabra «Maipo» (del mapudungun: maypun, lugar arado).",
+        "direccion": "calle concon XXX, concon",
+        "region": "region metropolitana",
+        "numero-contacto": "+56987654321",
+        "email-contacto": "concon@chile.cl"
+    },
+    {
+        "id": 5,
+        "imagen": "./src/assets/Foto-ejemplo.jpg",
+        "titulo": "Olla Común de valparaiso",
+        "descripcion": "La sencilla comuna de valparaiso alberga el Estadio Nacional Julio Martínez Prádanos, un gran estadio en el que se celebran partidos de fútbol y conciertos con artistas de renombre. El complejo circundante incluye una pista de patinaje y un diamante de béisbol. Alrededor de la arbolada Plaza valparaiso se pueden encontrar cafeterías al aire libre y bares animados, además de restaurantes chilenos, italianos y peruanos, y el centro comercial Portal valparaiso tiene restaurantes de comida rápida.",
+        "direccion": "calle valparaiso XXX, valparaiso",
+        "region": "region metropolitana",
+        "numero-contacto": "+56912345678",
+        "email-contacto": "valparaiso@chile.cl"
+    },
+    {
+        "id": 6,
+        "imagen": "./src/assets/Foto-ejemplo2.png",
+        "titulo": "Olla Común de arica",
+        "descripcion": "arica es una comuna ubicada en el sector surponiente de la ciudad de Santiago, capital de Chile. Pertenece administrativamente a la provincia de Santiago, dentro de la región Metropolitana de Santiago. Según el censo del año 2017, arica tiene una población de 521 627 habitantes, transformándola en la segunda comuna más poblada del país después de Puente Alto.1​        El nombre de la comuna proviene de una derivación de la palabra «Maipo» (del mapudungun: maypun, lugar arado).",
+        "direccion": "calle arica XXX, arica",
+        "region": "region metropolitana",
+        "numero-contacto": "+56987654321",
+        "email-contacto": "arica@chile.cl"
+    }
+]

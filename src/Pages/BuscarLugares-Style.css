@@ -1,3 +1,7 @@
+.contenedor {
+    display: flex;
+}
+
 .Barra-de-busqueda{
     margin: 0.5rem;
     padding: 0.5rem;
@@ -7,14 +11,15 @@
 }
 
 .Zona-cartas{
+    justify-content: center;
     margin: 0.5rem;
 }
 
-.carta{
-    margin: 20px;
-    padding: 20px;
+.pagina {
+    width: 423vh;
 }
 
-.barraLateral{
-    width: 220px !important;
+.card{
+    margin: 10px;
+    padding: 0;
 }

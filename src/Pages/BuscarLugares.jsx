@@ -14,13 +14,10 @@ import BarraLateral from "../components/BarraLateral/BarraLateral";
 function BuscarLugares() {
   return (
     <div className="contenedor">
-      <Row>
-        <Col className="barraLateral">
-        <BarraLateral />
-        </Col>
         
-        <Col>
-        <div className="Barra-de-busqueda">
+          <BarraLateral />
+        <div className="pagina">
+          <div className="Barra-de-busqueda">
           <Col>
             <Dropdown>
               <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -40,16 +37,12 @@ function BuscarLugares() {
           <Col>
             <Link to="/Mapa">Mapa de busqueda</Link>
           </Col>
-        </div>
+          </div>
         <Row className="Zona-cartas">
-          <CartaInformacion className="carta" />
-          <CartaInformacion className="carta" />
-          <CartaInformacion className="carta" />
-          <CartaInformacion className="carta" />
+          <CartaInformacion className="cartaOlla" />
+          
         </Row>
-        </Col>
-        
-      </Row>
+        </div>
     </div>
   );
 }

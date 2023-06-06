@@ -1,6 +1,16 @@
 .sidebar {
-    background-color: brown !important;
+    background-color: rgb(20, 20, 20) !important;
     width: 220px;
-    height: min-content;
     
+}
+
+.lateral {
+    background-color: rgb(20, 20, 20) !important;
+    min-height: calc(100vh - 141px);
+    max-height: auto;
+}
+
+.texto {
+    padding: 14px;
+    color: white;
 }
