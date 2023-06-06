@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
-import "./errorPagina_styles.css";
+import "./formulario_styles.css";
 
 const CrearCuenta = () => {
 
@@ -12,26 +12,27 @@ const CrearCuenta = () => {
 
     }
     
+    return <div className="div-formulario" >
 
-    return <div>
+        
+        <form className="form-formulario-Crear" onSubmit={ handleSubmit(onSubmit) } >
 
-        <h2>Crear Cuenta</h2>
-        <form onSubmit={ handleSubmit(onSubmit) } >
+            <h2>Crear Cuenta</h2>
 
             <div>
-                <label>Nombre</label>
+                
                 <input type="text" placeholder="Nombre" {...register('nombre', {
 
                     required: true,
                     
                 } ) } />
 
-                {errors.nombre?.type === 'required' && <p class="errorP">El nombre es requerido</p> }
+                {errors.nombre?.type === 'required' && <p className="errorP">El nombre es requerido</p> }
 
             </div>
-
+            <br/>
             <div>
-                <label>Correo</label>
+                
                 <input type="text" placeholder="Correo" {...register('correo', {
 
                     required: true,
@@ -39,13 +40,13 @@ const CrearCuenta = () => {
 
                 } ) } />
 
-                {errors.correo?.type === 'required' && <p class="errorP" >El correo es requerido</p> }
-                {errors.correo?.type === 'pattern' && <p class="errorP" >El formato del email es incorrecto</p> }
+                {errors.correo?.type === 'required' && <p className="errorP" >El correo es requerido</p> }
+                {errors.correo?.type === 'pattern' && <p className="errorP" >El formato del email es incorrecto</p> }
 
             </div>
-
+            <br/>
             <div>
-                <label>Telefono</label>
+                
                 <input type="text" placeholder="Telefono" {...register('telefono', {
 
                     required: true,
@@ -53,13 +54,13 @@ const CrearCuenta = () => {
                     
                 } ) } />
 
-                {errors.telefono?.type === 'required' && <p class="errorP" >El telefono es requerido</p> }
-                {errors.telefono?.type === 'pattern' && <p class="errorP" >El formato del telefono es incorrecto</p> }
+                {errors.telefono?.type === 'required' && <p className="errorP" >El telefono es requerido</p> }
+                {errors.telefono?.type === 'pattern' && <p className="errorP" >El formato del telefono es incorrecto</p> }
 
             </div>
-
+            <br/>
             <div>
-                <label>Contraseña</label>
+                
                 <input type="password" placeholder="Contraseña"  {...register('contrasena', {
 
                     required: true,
@@ -67,18 +68,18 @@ const CrearCuenta = () => {
 
                 } ) } />
 
-                {errors.contrasena?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
-                {errors.contrasena?.type === 'minLength' && <p class="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
+                {errors.contrasena?.type === 'required' && <p className="errorP" >La contraseña es requerida</p> }
+                {errors.contrasena?.type === 'minLength' && <p className="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
 
             </div>
-
+            <br/>
             <div>
             
-                <label>Confirmar Contraseña</label>
+                
                 <input type="password" placeholder="Confirmar Contraseña" {...register('confContrasena', {
 
                     required: true,
-                    validate: (val = string /*watch('confContrasena')*/ ) => { 
+                    validate: (val = /*string*/ watch('confContrasena') ) => { 
 
                         if (watch ('contrasena') !=val ) {
 
@@ -92,12 +93,12 @@ const CrearCuenta = () => {
 
                 
 
-                {errors.confContrasena?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
-                {errors.confContrasena && <p class="errorP" >Las contraseñas no coinciden</p> }
+                {errors.confContrasena?.type === 'required' && <p className="errorP" >La contraseña es requerida</p> }
+                {errors.confContrasena && <p className="errorP" >Las contraseñas no coinciden</p> }
 
             </div>
 
-            <input type="submit" value="Crear Cuenta" />
+            <br/><input type="submit" value="Crear Cuenta" />
 
             <p>¿Tienes una cuenta? <Link to="/IniciarSesion">Iniciar sesión</Link> </p>
 

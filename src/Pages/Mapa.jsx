@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
-import {GoogleMap, useLoadScript} from "@react-google-maps/api"
+import {GoogleMap, MarkerF, useLoadScript} from "@react-google-maps/api"
 
 import "./Mapa.css"
 import { useState } from "react";
@@ -25,7 +25,7 @@ export default function Mapa() {
                         <h1>Listado de direcciones en formato mapa</h1> 
                     </Col>
                     <Col>
-                        <button><Link to="/BuscarLugares"> Volver atrás</Link></button>
+                        <button><Link to="/BuscarLugares"> Volver al otro formato</Link></button>
                     </Col>
                 </Row>
             </div>
@@ -43,7 +43,7 @@ export default function Mapa() {
                 </Col>
                 <Col xs="9" className="col-map">
                     <GoogleMap zoom={15} center={{lat:coordenadas.lat,lng:coordenadas.long}} mapContainerClassName="map-container">
-
+                        <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.long}}/>
                     </GoogleMap>
                 </Col>
             </Row>

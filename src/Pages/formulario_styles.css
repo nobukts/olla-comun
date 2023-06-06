@@ -1,0 +1,60 @@
+.errorP {
+
+    color: red;
+
+}
+
+.div-formulario{
+
+    /**display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;**/
+
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+.form-formulario-Inicio{
+
+    width: fit-content;
+
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 10%;
+    border-radius: 8px;
+    background-color: white;
+
+}
+
+.form-formulario-Crear{
+
+    width: fit-content;
+
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 2%;
+    border-radius: 8px;
+    background-color: white;
+
+}
+
+.form-formulario-Recuperar{
+
+    width: fit-content;
+
+    box-shadow: rgb(0 0 0 / 16%) 1px 1px 10px;
+    padding: 2%;
+    border-radius: 8px;
+    background-color: white;
+
+}
+
+/**label{
+
+    font-weight: 600;    
+
+}**/

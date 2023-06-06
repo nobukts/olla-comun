@@ -2,7 +2,6 @@
 import "./BarraLateral.css";
 
 //React
-import React from "react";
 import { Nav } from "react-bootstrap";
 
 function BarraLateral() {
@@ -12,7 +11,6 @@ function BarraLateral() {
         
         <div className="texto">
           <h2>Filtro de busqueda</h2>
-          <Nav.Link className="texto" href="/">Inicio</Nav.Link>
           <Nav.Link className="texto">Filtro N°1</Nav.Link>
           <Nav.Link className="texto">Filtro N°2</Nav.Link>
         </div>

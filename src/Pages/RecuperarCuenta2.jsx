@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
+import './formulario_styles.css'
 
 const RecuperarCuenta2 = () => {
 
@@ -12,14 +13,16 @@ const RecuperarCuenta2 = () => {
     }
     
 
-    return <div>
+    return <div className="div-formulario" >
 
-        <h2>Escribir código</h2>
-        <form onSubmit={ handleSubmit(onSubmit) } >
+        
+        <form  className="form-formulario-Recuperar" onSubmit={ handleSubmit(onSubmit) } >
             
+            <h2>Escribir código</h2>
+
             <div>
-                <p>Escriba el código que le ha llegado a su correo electronico.</p>
-                <label>Código</label>
+                <p>Escriba el código que le ha llegado<br/>a su correo electronico.</p>
+                
                 <input type="text" placeholder="Código" {...register('codigo', {
 
                     required: true,
@@ -27,12 +30,12 @@ const RecuperarCuenta2 = () => {
 
                 } ) } />
 
-                {errors.codigo?.type === 'required' && <p class="errorP" >El código es requerido</p> }
-                {errors.codigo?.type === 'minLength' && <p class="errorP" >El código debe tener al menos 6 caracteres</p> }
+                {errors.codigo?.type === 'required' && <p className="errorP" >El código es requerido</p> }
+                {errors.codigo?.type === 'minLength' && <p className="errorP" >El código debe tener al menos 6 caracteres</p> }
 
             </div>
 
-            <input type="submit" value="Enviar LINKEARLO A RECUPERAR3"/>
+            <br/><input type="submit" value="Enviar"/>
 
             <p>¿No tienes una cuenta? <Link to="/CrearCuenta">Crear ahora</Link> </p>
 

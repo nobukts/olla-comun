@@ -7,7 +7,6 @@ import CartaInformacion from "../components/CartaInformacion/CartaInformacion";
 import Dropdown from "react-bootstrap/Dropdown";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import BarraLateral from "../components/BarraLateral/BarraLateral";
 
@@ -15,7 +14,7 @@ function BuscarLugares() {
   return (
     <div className="contenedor">
         
-          <BarraLateral />
+      <BarraLateral />
         <div className="pagina">
           <div className="Barra-de-busqueda">
           <Col>
@@ -32,10 +31,10 @@ function BuscarLugares() {
             </Dropdown>
           </Col>
           <Col>
-            <h3>Busqueda de ollas comunes</h3>
+            <h3>Búsqueda de ollas comunes</h3>
           </Col>
           <Col>
-            <Link to="/Mapa">Mapa de busqueda</Link>
+          <button><Link to="/Mapa"> Mapa de búsqueda</Link></button>
           </Col>
           </div>
         <Row className="Zona-cartas">

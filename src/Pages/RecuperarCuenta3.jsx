@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
+import './formulario_styles.css'
 
 const RecuperarCuenta3 = () => {
 
@@ -12,14 +13,16 @@ const RecuperarCuenta3 = () => {
     }
     
 
-    return <div>
+    return <div className="div-formulario" >
 
-        <h2>Cambiar contraseña</h2>
-        <form onSubmit={ handleSubmit(onSubmit) } >
+        
+        <form className="form-formulario-Recuperar" onSubmit={ handleSubmit(onSubmit) } >
             
+            <h2>Cambiar contraseña</h2>
+
             <div>
                 <p>Escriba su nueva contraseña.</p>
-                <label>Nueva contraseña</label>
+
                 <input type="password" placeholder="Nueva contraseña" {...register('newContra', {
 
                     required: true,
@@ -27,18 +30,17 @@ const RecuperarCuenta3 = () => {
 
                 } ) } />
 
-                {errors.newContra?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
-                {errors.newContra?.type === 'minLength' && <p class="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
+                {errors.newContra?.type === 'required' && <p className="errorP" >La contraseña es requerida</p> }
+                {errors.newContra?.type === 'minLength' && <p className="errorP" >La contraseña debe tener al menos 8 caracteres</p> }
 
             </div>
-
+                <br/>
             <div>
             
-                <label>Confirmar nueva contraseña</label>
                 <input type="password" placeholder="Confirmar Contraseña" {...register('confNewContra', {
 
                     required: true,
-                    validate: (val = string /*watch('newContra')*/ ) => { 
+                    validate: (val = /*string*/ watch('newContra') ) => { 
 
                         if (watch ('newContra') !=val ) {
 
@@ -52,13 +54,13 @@ const RecuperarCuenta3 = () => {
 
                 
 
-                {errors.confNewContra?.type === 'required' && <p class="errorP" >La contraseña es requerida</p> }
-                {errors.confNewContra && <p class="errorP" >Las contraseñas no coinciden</p> }
+                {errors.confNewContra?.type === 'required' && <p className="errorP" >La contraseña es requerida</p> }
+                {errors.confNewContra && <p className="errorP" >Las contraseñas no coinciden</p> }
 
             </div>
 
-            <input type="submit" value="Enviar LINKEARLO A IniciarSesion"/>
-
+            <br/><input type="submit" value="Cambiar"/>
+                
             <p>¿No tienes una cuenta? <Link to="/CrearCuenta">Crear ahora</Link> </p>
 
         </form>
