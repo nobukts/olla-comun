@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
-import './formulario_styles.css'
 
 
 const RecuperarCuenta1 = () => {
@@ -40,7 +39,7 @@ const RecuperarCuenta1 = () => {
             <div>
                 <p>Si ha olvidado su contraseña, le<br/>enviaremos un correo para restablecerla.</p>
                 
-                <input type="text" placeholder="Correo" id="correo" {...register('correo', {
+                <input type="text" placeholder="Correo" id="correoJSX" {...register('correo', {
 
                     required: true,
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
@@ -54,9 +53,8 @@ const RecuperarCuenta1 = () => {
 
             
 
+            <br/><input id="btnRecuperar" type="submit" value="Recuperar"/>
             
-            <br/><input type="submit" value="Recuperar"  />
-
             <p>¿No tienes una cuenta? <Link to="/CrearCuenta">Crear ahora</Link> </p>
 
         </form>

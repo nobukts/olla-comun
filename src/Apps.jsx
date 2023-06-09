@@ -11,6 +11,7 @@ import Mapa from "./Pages/Mapa"
 import RecuperarCuenta1 from "./Pages/RecuperarCuenta1"
 import RecuperarCuenta2 from "./Pages/RecuperarCuenta2"
 import RecuperarCuenta3 from "./Pages/RecuperarCuenta3"
+import CartaOllaComun from "./Pages/CartaOllaComun"
 
 import "./Apps.css"
 import NotError from "./Pages/NotError";
@@ -32,6 +33,7 @@ function Apps() {
                   <Route path="RecuperarCuenta1" element={<RecuperarCuenta1/>}/>
                   <Route path="RecuperarCuenta2" element={<RecuperarCuenta2/>}/>
                   <Route path="RecuperarCuenta3" element={<RecuperarCuenta3/>}/>
+                  <Route path="CartaOllaComun" element={<CartaOllaComun/>}/>
               </Routes>
           </Router>
       </div>

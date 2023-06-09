@@ -38,7 +38,7 @@ function CartaInformacion() {
       {
       ollasC && ollasC.map(ollasC => {
         return(
-          <Card style={{ width: "18rem" }}>
+          <Card style={{ width: "18rem" }} key={ollasC.id}>
           <Card.Img variant="top" src={ollasC.imagen} style={{ height: "225px" }}/>
           <Card.Body>
             <Card.Title>{ollasC.titulo}</Card.Title>

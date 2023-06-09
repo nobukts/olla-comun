@@ -4,6 +4,7 @@ import {GoogleMap, MarkerF, useLoadScript} from "@react-google-maps/api"
 
 import "./Mapa.css"
 import { useState } from "react";
+import data from '../assets/datos/lugaresOllas.json'
 
 export default function Mapa() {
     const {isLoaded} = useLoadScript({
@@ -32,18 +33,26 @@ export default function Mapa() {
             <Row>
                 <Col className="col-lateral">
                     <h2 className="mini-titu">Listado de ollas comunes</h2>
-                    <ul className="direcciones">
-                        <li><button onClick={() => {setCoordinates({lat: -33.008117, long: -71.546946})}}>Olla común #1</button></li>
-                        <li><button onClick={() => {setCoordinates({lat: -33.009835, long: -71.548169})}}>Olla común #2</button></li>
-                        <li><button onClick={() => {setCoordinates({lat: -32.931153, long: -71.516647})}}>Olla común #3</button></li>
-                        <li><button onClick={() => {setCoordinates({lat: -32.933620, long: -71.516422})}}>Olla común #4</button></li>
-                        <li><button onClick={() => {setCoordinates({lat: -32.930928, long: -71.532333})}}>Olla común #5</button></li>
-                        <li><button onClick={() => {setCoordinates({lat: -33.270123, long: -71.655881})}}>Olla común #6</button></li>
-                    </ul>
+                    <div className="listado">
+                        {(data.map( record =>{                        
+                            return(
+                            <div className="boton" key={record.id}>
+                                    <button onClick={() => setCoordinates({lat: record.x, long: record.y})}> Olla Común #{record.id}</button>
+                            </div>)
+                        } )
+                        )
+                        }
+                    </div>
                 </Col>
                 <Col xs="9" className="col-map">
                     <GoogleMap zoom={15} center={{lat:coordenadas.lat,lng:coordenadas.long}} mapContainerClassName="map-container">
                         <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.long}}/>
+                        {(data.map( record =>{                        
+                            return(
+                                <MarkerF key={record.id} position={{lat: record.x, lng: record.y}}/>
+                            )
+                            } )
+                        )}
                     </GoogleMap>
                 </Col>
             </Row>
