@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
-import {Link} from "react-router-dom";
-
+import {Link, useNavigate} from "react-router-dom";
+import CorreosRegistrados from "/src/assets/datos/correosRegistrados.json"
 
 const RecuperarCuenta1 = () => {
 
@@ -19,11 +19,25 @@ const RecuperarCuenta1 = () => {
         return objeto;
     
     }*/
+    const navigate = useNavigate();
 
     const onSubmit = (data) => {
 
         console.log(data);
         /*captura();*/
+        CorreosRegistrados && CorreosRegistrados.map(CorreosRegistrados => {
+            console.log(CorreosRegistrados.correo)
+            if(CorreosRegistrados.correo == data.correo){
+                navigate("/RecuperarCuenta2");
+            }else{
+                console.log("no coinciden con los datos guardados");
+                return(
+                    <div>
+                        <p>NO COINCIDEN</p>
+                    </div>
+                )
+            }
+          })
         return data;
 
     }

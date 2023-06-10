@@ -7,7 +7,7 @@ import "./CartaOllaComun.css"
 
 
 //JSON
-import ollasC from '../components/CartaInformacion/OllasComunes.json'
+import ollasC from '/src/assets/datos/OllasComunes.json'
 
 const CartaOllaComun = () => {
     let params = useParams();

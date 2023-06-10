@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { useParams } from "react-router-dom";
 
 //JSON
-import ollasC from './OllasComunes.json'
+import ollasC from '/src/assets/datos/OllasComunes.json'
 
 /* GUIA DE COMO SE USA EL JSON
   *
