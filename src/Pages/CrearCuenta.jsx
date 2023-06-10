@@ -8,7 +8,8 @@ const CrearCuenta = () => {
 
     const onSubmit = (data) => {
 
-        console.log(data);
+        console.log(JSON.stringify(data));
+        alert("Se ha añadido la olla común a la página!")
 
     }
     
