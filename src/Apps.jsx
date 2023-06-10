@@ -19,7 +19,6 @@ import NotError from "./Pages/NotError";
 function Apps() {
   return (
     <div className="Apps">
-      <div className="content-wrap">
         <Router>
               <BarraNavegacion/>
               <Routes>
@@ -36,9 +35,9 @@ function Apps() {
                   <Route path="RecuperarCuenta3" element={<RecuperarCuenta3/>}/>
                   <Route path="/BuscarLugares/CartaOllaComun/:id" element={<CartaOllaComun/>}/>
               </Routes>
+              <div className="content-wrap"/>
+              <PiePagina/>
           </Router>
-      </div>
-      <PiePagina/>
     </div>
   );
 }
