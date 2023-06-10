@@ -1,5 +1,7 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom"
+import { useParams } from "react-router-dom";
 
 //JSON
 import ollasC from './OllasComunes.json'
@@ -17,21 +19,54 @@ import ollasC from './OllasComunes.json'
         }
 */
 
-/** Como estaban las cartas antes de aplicar el JSON
- * 
- * <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src="./src/assets/Foto-ejemplo.jpg" />
-      <Card.Body>
-        <Card.Title>Ola</Card.Title>
-        <Card.Text>
-          Descripcion acerca de la olla comun numero # la cual queda en # datos
-          ingresado por el usuario.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-*/
+const CartaInformacion = () => {
+  let params = useParams();
+  console.log(params);
+  var auxRegion;
+  var seImprime;
 
+  if(params.filtro == "Filtro-region-metropolitana"){
+    auxRegion = "region metropolitana"
+  }
+  if(params.filtro == "Filtro-region-de-valparaiso"){
+    auxRegion = "region de valparaiso"
+  }
+  
+
+  return (
+    <>
+      {
+      ollasC && ollasC.map(ollasC => {
+        if(auxRegion == ollasC.region || params.filtro == undefined){
+          seImprime = true;
+        }else{
+          seImprime = false;
+        }
+
+        if(seImprime){
+          return(
+            <Card style={{ width: "18rem" }} key={ollasC.id}>
+            <Card.Img variant="top" src={ollasC.imagen} style={{ height: "225px" }}/>
+            <Card.Body>
+              <Card.Title>{ollasC.titulo}</Card.Title>
+              <Card.Text>
+                {ollasC.direccion}
+              </Card.Text>
+              <Button as={Link} to={`/BuscarLugares/CartaOllaComun/${ollasC.id}`} state={ollasC.id} variant="primary">Ver más detalles</Button>
+            </Card.Body>
+          </Card>
+          )
+        }else{
+          return(<></>);
+        }
+        
+      })
+    }
+    </>
+  );
+}
+
+/* funcion de mostrar las cartas antes de realizar los filtros
 function CartaInformacion() {
   return (
     <>
@@ -45,7 +80,7 @@ function CartaInformacion() {
             <Card.Text>
               {ollasC.descripcion}
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button as={Link} to={`CartaOllaComun/${ollasC.id}`} state={ollasC.id} variant="primary">Go somewhere</Button>
           </Card.Body>
         </Card>
         )
@@ -53,6 +88,6 @@ function CartaInformacion() {
     }
     </>
   );
-}
+}*/
 
 export default CartaInformacion;

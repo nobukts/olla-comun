@@ -3,7 +3,7 @@ import "./BarraLateral.css";
 
 //React
 import { Nav } from "react-bootstrap";
-import { Link } from "react-router-dom"; //Quitar despues?
+import { Link } from "react-router-dom";
 
 function BarraLateral() {
   return (
@@ -12,8 +12,9 @@ function BarraLateral() {
         
         <div className="texto">
           <h2>Filtro de busqueda</h2>
-          <Nav.Link as={Link} to="/CartaOllaComun" className="texto">Ir a CartaOllaComun - test</Nav.Link>
-          <Nav.Link className="texto">Filtro N°2</Nav.Link>
+          <Nav.Link as={Link} to="/BuscarLugares/Filtro-region-metropolitana">Region metropolitana</Nav.Link>
+          <Nav.Link as={Link} to="/BuscarLugares/Filtro-region-de-valparaiso">Region de valparaiso</Nav.Link>
+          <Nav.Link as={Link} to="/BuscarLugares">Borrar filtros</Nav.Link>
         </div>
         
       </Nav>

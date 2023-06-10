@@ -1,0 +1,23 @@
+.columna {
+    margin: 1%;
+    padding: 2%;
+    border: 1px black solid;
+}
+
+.izq {
+    text-align: center;
+}
+
+.contenedorEsp {
+    margin: 5%;
+    justify-content: center;
+    display: block;
+}
+
+.fila {
+    display: flex;
+}
+
+.columna img {
+    height: 400px;
+}

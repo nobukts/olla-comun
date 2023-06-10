@@ -25,6 +25,7 @@ function Apps() {
               <Routes>
                   <Route path="/" element={<Inicio/>} />
                   <Route path="BuscarLugares" element={<BuscarLugares/>} />
+                  <Route path="BuscarLugares/:filtro" element={<BuscarLugares/>} />
                   <Route path="AñadirOllaComun" element={<AñadirOllaComun/>} />
                   <Route path="IniciarSesion" element={<IniciarSesion/>} />
                   <Route path="CrearCuenta" element={<CrearCuenta/>} />
@@ -33,7 +34,7 @@ function Apps() {
                   <Route path="RecuperarCuenta1" element={<RecuperarCuenta1/>}/>
                   <Route path="RecuperarCuenta2" element={<RecuperarCuenta2/>}/>
                   <Route path="RecuperarCuenta3" element={<RecuperarCuenta3/>}/>
-                  <Route path="CartaOllaComun" element={<CartaOllaComun/>}/>
+                  <Route path="/BuscarLugares/CartaOllaComun/:id" element={<CartaOllaComun/>}/>
               </Routes>
           </Router>
       </div>
