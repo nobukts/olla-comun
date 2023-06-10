@@ -1,0 +1,27 @@
+.cont-olla {
+    text-align: center;
+}
+
+.cont-olla h1{
+    padding-top: 1%;
+}
+
+.formulario-olla{
+    border: 2px solid black;
+    margin: 1%;
+    padding: 2%;
+}
+
+.formulario-olla {
+    border: 2px solid black;
+
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
