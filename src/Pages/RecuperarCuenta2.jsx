@@ -10,6 +10,7 @@ const RecuperarCuenta2 = () => {
     const onSubmit = (data) => {
 
         console.log(data);
+        alert("Redirigiendo a la siguiente pagina");
         navigate("/RecuperarCuenta3");
 
     }

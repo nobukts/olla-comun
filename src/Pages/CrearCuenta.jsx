@@ -9,14 +9,14 @@ const CrearCuenta = () => {
     const onSubmit = (data) => {
 
         console.log(JSON.stringify(data));
-        alert("Se ha añadido la olla común a la página!")
+        alert("Se ha añadido el usuario a la página!");
 
     }
     
     return <div className="div-formulario" >
 
         
-        <form className="form-formulario-Crear" onSubmit={ handleSubmit(onSubmit) } >
+        <form id="formulario" className="form-formulario-Crear" onSubmit={ handleSubmit(onSubmit) } >
 
             <h2>Crear Cuenta</h2>
 
@@ -102,7 +102,6 @@ const CrearCuenta = () => {
             <br/><input type="submit" value="Crear Cuenta" />
 
             <p>¿Tienes una cuenta? <Link to="/IniciarSesion">Iniciar sesión</Link> </p>
-
         </form>
 
     </div>

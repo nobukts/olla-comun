@@ -1,14 +1,19 @@
 import { useForm } from "react-hook-form";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './formulario_styles.css'
 
 const RecuperarCuenta3 = () => {
+
+    const navigate = useNavigate();
 
     const { register, formState: {errors} , watch, handleSubmit } = useForm();
 
     const onSubmit = (data) => {
 
         console.log(data);
+        alert("Redirigiendo a la siguiente pagina");
+        navigate("/IniciarSesion");
+        
 
     }
     

@@ -6,39 +6,48 @@ const RecuperarCuenta1 = () => {
 
     const { register, formState: {errors} , handleSubmit } = useForm();
 
-    
-
-    /*function captura(){
-
-        const objeto = {
-
-            correo: document.getElementById("correo").value
-
-        }
-
-        return objeto;
-    
-    }*/
     const navigate = useNavigate();
 
     const onSubmit = (data) => {
 
-        console.log(data);
-        /*captura();*/
-        CorreosRegistrados && CorreosRegistrados.map(CorreosRegistrados => {
-            console.log(CorreosRegistrados.correo)
+        //console.log("-----------------");
+        
+        /**CorreosRegistrados && CorreosRegistrados.map(CorreosRegistrados => {
+            //console.log(CorreosRegistrados.correo)
             if(CorreosRegistrados.correo == data.correo){
                 navigate("/RecuperarCuenta2");
             }else{
-                console.log("no coinciden con los datos guardados");
+                //console.log("no coinciden con los datos guardados");
                 return(
                     <div>
                         <p>NO COINCIDEN</p>
                     </div>
                 )
             }
-          })
-        return data;
+
+
+        })**/
+
+        const aux = CorreosRegistrados.map( CorreosRegistrados => { return CorreosRegistrados.correo } ) ;
+        var i = 0;
+        var flag = false;
+        for( let correosR of aux ) {
+            
+            //console.log(aux[i])
+
+            if(aux[i] == data.correo){
+                flag = true;
+                break;
+            }
+            i++;
+        }
+
+        if( flag ) {
+            alert("Redirigiendo a la siguiente pagina");
+            navigate("/RecuperarCuenta2");
+        }else{
+            alert("No se encuentra el correo en la base de datos");
+        }
 
     }
     
