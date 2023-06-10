@@ -1,7 +1,16 @@
-.bloq{
+.formulario-error{
     border: 2px solid black;
     text-align: center;
     margin: 1%;
+    padding: 5%;
+}
+
+
+
+.titulo{
+    text-align: center;
     padding: 1%;
 }
+
+
 

@@ -30,7 +30,6 @@ function BarraNavegacion() {
               <Nav.Link as={Link} to="/">Inicio</Nav.Link>
               <Nav.Link as={Link} to="/BuscarLugares">Buscar Lugares</Nav.Link>
               <Nav.Link as={Link} to="/AñadirOllaComun">Añadir Olla Común</Nav.Link>
-              <Nav.Link as={Link} to="/NotError">Notificar error</Nav.Link>
             </Nav>
             <Nav className="cuenta-usuario">
               <img className="usuario" src={logo_usuario} />
