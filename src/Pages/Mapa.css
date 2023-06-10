@@ -9,14 +9,13 @@
   text-align: center;
 }
 
-.direcciones{
-  list-style-type: none;
+.listado{
   text-align: center;
   border: 2px black solid;
 }
 
-.direcciones li{
-  margin: 3%;
+.boton{
+  padding: 5%;
 }
 
 .barra{
