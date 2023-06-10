@@ -1,24 +1,53 @@
 //CSS
-//import "./BuscarLugares-Style.css";
+import "./CartaOllaComun.css"
 
 import Col from "react-bootstrap/Col";
 import { useParams } from "react-router-dom";
-import "./CartaOllaComun.css"
-
+import Geocode from "react-geocode"
 
 //JSON
 import ollasC from '/src/assets/datos/OllasComunes.json'
+import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
+import { useState } from "react";
 
 const CartaOllaComun = () => {
+    const {isLoaded} = useLoadScript({
+        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
+    })
+
     let params = useParams();
 
-    return (
+    Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAPS_API);
+    Geocode.setLanguage("es");
+    Geocode.setLocationType("es");
+    Geocode.setLocationType("ROOFTOP");
+    
+    const [coordenadas, setCoordenadas] = useState({
+        lat: -32.996672,
+        lng: -71.501392
+    })
+
+    if(!isLoaded) return<div><h1>Cargando...</h1></div>
+
+    ollasC.map(ollasC => {
+        if (ollasC.id == params.id){
+            Geocode.fromAddress(ollasC.direccion).then(
+                (response) => {
+                    setCoordenadas((response.results[0].geometry.location))
+                },
+                (error) => {
+                  console.error(error);
+                }
+              );
+        }
+    })
+
+      return (
         <>
           {
           ollasC && ollasC.map(ollasC => {
             if(ollasC.id == params.id){
                 return(
-                
                     <div className="contenedorEsp" key={ollasC.id}>
                       <div className="fila">
                           <Col className="columna izq">
@@ -33,7 +62,11 @@ const CartaOllaComun = () => {
                       </div>
                       <div className="fila">
                           <Col className="columna izq">
-                              <p>mapa</p>
+
+                                <GoogleMap zoom={15} center={coordenadas} mapContainerClassName="map-container">
+                                <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.lng}}/>
+                                </GoogleMap>
+                                
                           </Col>
                           <Col className="columna">
                             <h1>Zona de contacto</h1>
@@ -45,9 +78,7 @@ const CartaOllaComun = () => {
                   )
             }
             return(
-                <div className="contenedor">
-                  
-                </div>
+                <div className="contenedor" key={ollasC.id}/>                  
               )
             
           })
