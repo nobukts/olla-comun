@@ -7,7 +7,9 @@
         "direccion": "Carmen Covarrubias 882-840, 7750418 Ñuñoa, Región Metropolitana",
         "region": "region metropolitana",
         "numero": "+56912345678",
-        "email": "ñuñoa@chile.cl"
+        "email": "ñuñoa@chile.cl",
+        "x": -33.014983,
+        "y": -71.498902
     },
     {
         "id": 2,

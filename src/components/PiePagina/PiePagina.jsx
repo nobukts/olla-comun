@@ -7,7 +7,7 @@ export default function PiePagina() {
       <footer>
           <a>&copy; {new Date().getFullYear()} Copyright:{' José Osega - Jefté Ponce - Bryan López '} </a>
           <br/>
-          <Link to="/NotError" className='error-page'>Notificar de errores</Link>
+          <Link to="/NotError" className='error-page'>Notificar error</Link>
       </footer>
   );
 }

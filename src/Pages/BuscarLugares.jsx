@@ -34,7 +34,7 @@ function BuscarLugares() {
             <h3>Búsqueda de ollas comunes</h3>
           </Col>
           <Col>
-          <button><Link style={{color: 'black'}} to="/Mapa"> Mapa de búsqueda</Link></button>
+          <button><Link style={{color: 'black', textDecoration: 'none'}} to="/Mapa"> Mapa de búsqueda</Link></button>
           </Col>
           </div>
         <Row className="Zona-cartas">

@@ -9,7 +9,6 @@ import ollasC from '/src/assets/datos/OllasComunes.json'
 
 const CartaOllaComun = () => {
 
-
     let params = useParams();
 
       return (
@@ -17,6 +16,9 @@ const CartaOllaComun = () => {
           {
           ollasC && ollasC.map(ollasC => {
             if(ollasC.id == params.id){
+                var x = ollasC.x
+                var y = ollasC.y
+                var link = `//maps.google.com/maps?q=${x},${y}&z=15&output=embed`
                 return(
                     <div className="contenedorEsp" key={ollasC.id}>
                       <div className="fila">
@@ -32,7 +34,7 @@ const CartaOllaComun = () => {
                       </div>
                       <div className="fila">
                           <Col className="columna izq">
-                                
+                          <iframe className="mapa" src={link}/>
                           </Col>
                           <Col className="columna">
                             <h1>Zona de contacto</h1>
