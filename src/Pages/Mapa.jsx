@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 import {GoogleMap, MarkerF, useLoadScript} from "@react-google-maps/api"
+import Geocode from "react-geocode"
+import { useState } from "react";
 
 import "./Mapa.css"
-import { useState } from "react";
-import data from '../assets/datos/lugaresOllas.json'
+import data2 from '../assets/datos/OllasComunes.json'
 
 export default function Mapa() {
     const {isLoaded} = useLoadScript({
@@ -13,10 +14,15 @@ export default function Mapa() {
 
     const [coordenadas, setCoordinates] = useState({
         lat: -32.996672,
-        long: -71.501392
+        lng: -71.501392
     })
 
     if(!isLoaded) return<div><h1>Cargando...</h1></div>
+
+    Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAPS_API);
+    Geocode.setLanguage("es");
+    Geocode.setLocationType("es");
+    Geocode.setLocationType("ROOFTOP");
 
     return(
         <Container fluid>
@@ -34,25 +40,24 @@ export default function Mapa() {
                 <Col className="col-lateral">
                     <h2 className="mini-titu">Listado de ollas comunes</h2>
                     <div className="listado">
-                        {(data.map( record =>{                        
+                       {(data2.map( record =>{                        
                             return(
-                            <div className="boton" key={record.id}>
-                                    <button onClick={() => setCoordinates({lat: record.x, long: record.y})}> Olla Común #{record.id}</button>
+                            <div className="boton" key={record.id}>                              
+                                <button onClick={() => (Geocode.fromAddress(record.direccion).then(
+                                        (response) => {
+                                            setCoordinates((response.results[0].geometry.location))
+                                        },
+                                        (error) => {
+                                            console.error(error);
+                                        }
+                                    ))}>{record.titulo}</button>
                             </div>)
-                        } )
-                        )
-                        }
+                        }))}
                     </div>
                 </Col>
                 <Col xs="9" className="col-map">
-                    <GoogleMap zoom={15} center={{lat:coordenadas.lat,lng:coordenadas.long}} mapContainerClassName="map-container">
-                        <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.long}}/>
-                        {(data.map( record =>{                        
-                            return(
-                                <MarkerF key={record.id} position={{lat: record.x, lng: record.y}}/>
-                            )
-                            } )
-                        )}
+                    <GoogleMap zoom={15} center={{lat:coordenadas.lat,lng:coordenadas.lng}} mapContainerClassName="map-container">
+                        <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.lng}}/>
                     </GoogleMap>
                 </Col>
             </Row>
