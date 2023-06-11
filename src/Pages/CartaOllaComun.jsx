@@ -3,44 +3,14 @@ import "./CartaOllaComun.css"
 
 import Col from "react-bootstrap/Col";
 import { useParams } from "react-router-dom";
-import Geocode from "react-geocode"
 
 //JSON
 import ollasC from '/src/assets/datos/OllasComunes.json'
-import { GoogleMap, MarkerF, useLoadScript } from "@react-google-maps/api";
-import { useState } from "react";
 
 const CartaOllaComun = () => {
-    const {isLoaded} = useLoadScript({
-        googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API,
-    })
+
 
     let params = useParams();
-
-    Geocode.setApiKey(import.meta.env.VITE_GOOGLE_MAPS_API);
-    Geocode.setLanguage("es");
-    Geocode.setLocationType("es");
-    Geocode.setLocationType("ROOFTOP");
-    
-    const [coordenadas, setCoordenadas] = useState({
-        lat: -32.996672,
-        lng: -71.501392
-    })
-
-    if(!isLoaded) return<div><h1>Cargando...</h1></div>
-
-    ollasC.map(ollasC => {
-        if (ollasC.id == params.id){
-            Geocode.fromAddress(ollasC.direccion).then(
-                (response) => {
-                    setCoordenadas((response.results[0].geometry.location))
-                },
-                (error) => {
-                  console.error(error);
-                }
-              );
-        }
-    })
 
       return (
         <>
@@ -62,10 +32,6 @@ const CartaOllaComun = () => {
                       </div>
                       <div className="fila">
                           <Col className="columna izq">
-
-                                <GoogleMap zoom={15} center={coordenadas} mapContainerClassName="map-container mapa-olla">
-                                <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.lng}}/>
-                                </GoogleMap>
                                 
                           </Col>
                           <Col className="columna">
