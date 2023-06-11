@@ -25,12 +25,56 @@ const CartaInformacion = () => {
   var auxRegion;
   var seImprime;
 
-  if(params.filtro == "Filtro-region-metropolitana"){
-    auxRegion = "region metropolitana"
+  if(params.filtro == "Filtro-region-de-Arica-y-Parinacota"){
+    auxRegion = "region de Arica y Parinacota"
+  }
+  if(params.filtro == "Filtro-region-de-Tarapaca"){
+    auxRegion = "region de Tarapaca"
+  }
+  if(params.filtro == "Filtro-region-de-Antofagasta"){
+    auxRegion = "region de Antofagasta"
+  }
+  if(params.filtro == "Filtro-region-de-Atacama"){
+    auxRegion = "region de Atacama"
+  }
+  if(params.filtro == "Filtro-region-de-Coquimbo"){
+    auxRegion = "region de Coquimbo"
   }
   if(params.filtro == "Filtro-region-de-valparaiso"){
     auxRegion = "region de valparaiso"
   }
+  if(params.filtro == "Filtro-region-metropolitana"){
+    auxRegion = "region metropolitana"
+  }
+  if(params.filtro == "Filtro-region-de-Ohiggins"){
+    auxRegion = "region de Ohiggins"
+  }
+  if(params.filtro == "Filtro-region-del-Maule"){
+    auxRegion = "region del Maule"
+  }
+  if(params.filtro == "Filtro-region-del-Ñuble"){
+    auxRegion = "region del Ñuble"
+  }
+  if(params.filtro == "Filtro-region-del-Biobio"){
+    auxRegion = "region del Biobio"
+  }
+  if(params.filtro == "Filtro-region-de-La-Araucania"){
+    auxRegion = "region de La Araucania"
+  }
+  if(params.filtro == "Filtro-region-de-Los-Rios"){
+    auxRegion = "region de Los Rios"
+  }
+  if(params.filtro == "Filtro-region-de-Los-Lagos"){
+    auxRegion = "region de Los Lagos"
+  }
+  if(params.filtro == "Filtro-region-de-Aysen"){
+    auxRegion = "region de Aysen"
+  }
+  if(params.filtro == "Filtro-region-de-Magallanes"){
+    auxRegion = "region de Magallanes"
+  }
+  
+  
   
 
   return (

@@ -32,7 +32,7 @@ export default function Mapa() {
                         <h1>Listado de direcciones en formato mapa</h1> 
                     </Col>
                     <Col>
-                        <button><Link to="/BuscarLugares"> Volver al otro formato</Link></button>
+                        <button><Link style={{color: 'black'}} to="/BuscarLugares"> Volver al otro formato</Link></button>
                     </Col>
                 </Row>
             </div>

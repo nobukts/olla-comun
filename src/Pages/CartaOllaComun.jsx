@@ -63,7 +63,7 @@ const CartaOllaComun = () => {
                       <div className="fila">
                           <Col className="columna izq">
 
-                                <GoogleMap zoom={15} center={coordenadas} mapContainerClassName="map-container">
+                                <GoogleMap zoom={15} center={coordenadas} mapContainerClassName="map-container mapa-olla">
                                 <MarkerF position={{lat: coordenadas.lat, lng: coordenadas.lng}}/>
                                 </GoogleMap>
                                 
