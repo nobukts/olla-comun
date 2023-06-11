@@ -21,7 +21,6 @@ import ollasC from '/src/assets/datos/OllasComunes.json'
 
 const CartaInformacion = () => {
   let params = useParams();
-  console.log(params);
   var auxRegion;
   var seImprime;
 
@@ -101,7 +100,7 @@ const CartaInformacion = () => {
           </Card>
           )
         }else{
-          return(<></>);
+          return(<p key={ollasC.id} style={{display: 'none'}}></p>);
         }
         
       })

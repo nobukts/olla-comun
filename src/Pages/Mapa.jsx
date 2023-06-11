@@ -14,8 +14,8 @@ export default function Mapa() {
     return(
         <Container fluid>
             <div className="barra">
-                <Row className="barra-titular">
-                    <Col xs={11}>
+                <Row className="barra-titular" style={{padding: '5px'}}>
+                    <Col xs={10}>
                         <h1>Listado de direcciones en formato mapa</h1> 
                     </Col>
                     <Col>

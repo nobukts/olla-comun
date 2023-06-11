@@ -8,8 +8,8 @@
         "region": "region metropolitana",
         "numero": "+56912345678",
         "email": "ñuñoa@chile.cl",
-        "x": -33.014983,
-        "y": -71.498902
+        "x": -33.45679101849021,
+        "y": -70.59377393074602
     },
     {
         "id": 2,
@@ -19,7 +19,9 @@
         "direccion": "Av. 5 de Abril, Maipú, Región Metropolitana",
         "region": "region metropolitana",
         "numero": "+56987654321",
-        "email": "maipú@chile.cl"
+        "email": "maipú@chile.cl",
+        "x": -33.50975651788543,
+        "y": -70.75627137732013
     },
     {
         "id": 3,
@@ -29,7 +31,9 @@
         "direccion": "Libertador Bernardo O'Higgins, Rancagua, O'Higgins",
         "region": "region de Ohiggins",
         "numero": "+56912345678",
-        "email": "rancagua@chile.cl"
+        "email": "rancagua@chile.cl",
+        "x": -34.18062059886892, 
+        "y": -70.73924123044337
     },
     {
         "id": 4,
@@ -39,7 +43,9 @@
         "direccion": "Av. Concón Reñaca 400-498, Concón, Valparaíso",
         "region": "region de valparaiso",
         "numero": "+56987654321",
-        "email": "concon@chile.cl"
+        "email": "concon@chile.cl",
+        "x": -32.933903514672004, 
+        "y": -71.53648429078883
     },
     {
         "id": 5,
@@ -49,7 +55,9 @@
         "direccion": "Brasil 2263-2159, Valparaíso",
         "region": "region de valparaiso",
         "numero": "+56912345678",
-        "email": "valparaiso@chile.cl"
+        "email": "valparaiso@chile.cl",
+        "x": -33.04467102991218, 
+        "y": -71.61243531282749
     },
     {
         "id": 6,
@@ -59,6 +67,8 @@
         "direccion": "Dr. Juan Noe 700-798, Arica, Arica y Parinacota",
         "region": "region de Arica y Parinacota",
         "numero": "+56987654321",
-        "email": "arica@chile.cl"
+        "email": "arica@chile.cl",
+        "x": -18.47810069564036, 
+        "y": -70.31235005166633
     }
 ]
