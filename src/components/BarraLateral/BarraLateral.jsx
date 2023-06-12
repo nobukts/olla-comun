@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 function BarraLateral() {
   return (
     <div className="lateral">
-      <Nav className="col-md-12 d-none d-md-block bg-light sidebar">
+      <Nav className="col-md-12 d-md-block bg-light sidebar">
         
         <div className="texto">
           <h2>Filtro de busqueda</h2>
