@@ -14,12 +14,8 @@
     display: block;
 }
 
-.fila {
-    display: flex;
-}
-
 .columna img {
-    height: 400px;
+    width: 50%;
 }
 
 .mapa-Olla{

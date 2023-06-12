@@ -32,6 +32,12 @@ const CartaOllaComun = () => {
     crearComentario(data.comentario, data.nombre);
   };
 
+  if(screen.width <= 460){
+    var displayValue = "block";
+  }else{
+    var displayValue = 'flex'
+  }
+
   return (
     <>
       {ollasC &&
@@ -42,7 +48,7 @@ const CartaOllaComun = () => {
             var link = `//maps.google.com/maps?q=${x},${y}&z=15&output=embed`;
             return (
               <div className="contenedorEsp" key={ollasC.id}>
-                <div className="fila">
+                <div style={{display: displayValue}}>
                   <Col className="columna izq">
                     <img src={ollasC.imagen} alt="as" />
                   </Col>
@@ -54,7 +60,7 @@ const CartaOllaComun = () => {
                     <span>Descripción: {ollasC.descripcion}</span>
                   </Col>
                 </div>
-                <div className="fila">
+                <div style={{display: displayValue}}>
                   <Col className="columna izq">
                     <iframe className="mapa-Olla" src={link} />
                   </Col>
@@ -65,7 +71,7 @@ const CartaOllaComun = () => {
                     <span>Email de contacto: {ollasC.email}</span>
                   </Col>
                 </div>
-                <div className="fila">
+                <div style={{display: displayValue}}>
                   <Col className="columna">
                   <form
                     id="formulario"
