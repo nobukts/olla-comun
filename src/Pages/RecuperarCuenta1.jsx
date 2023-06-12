@@ -43,7 +43,7 @@ const RecuperarCuenta1 = () => {
         }
 
         if( flag ) {
-            alert("Redirigiendo a la siguiente pagina");
+            alert("Se ha enviado el correo, redirigiendo a la siguiente pagina");
             navigate("/RecuperarCuenta2");
         }else{
             alert("No se encuentra el correo en la base de datos");

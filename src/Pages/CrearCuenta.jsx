@@ -48,7 +48,7 @@ const CrearCuenta = () => {
             <br/>
             <div>
                 
-                <input type="text" placeholder="Telefono" {...register('telefono', {
+                <input type="text" placeholder="Telefono (+56912345678)" {...register('telefono', {
 
                     required: true,
                     pattern: /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/
@@ -56,7 +56,7 @@ const CrearCuenta = () => {
                 } ) } />
 
                 {errors.telefono?.type === 'required' && <p className="errorP" >El telefono es requerido</p> }
-                {errors.telefono?.type === 'pattern' && <p className="errorP" >El formato del telefono es incorrecto</p> }
+                {errors.telefono?.type === 'pattern' && <p className="errorP" >El formato del telefono es incorrecto (+56912345678)</p> }
 
             </div>
             <br/>
