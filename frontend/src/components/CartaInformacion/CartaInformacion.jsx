@@ -6,23 +6,43 @@ import { useParams } from "react-router-dom";
 //JSON
 import ollasC from '/src/assets/datos/OllasComunes.json'
 
-/* GUIA DE COMO SE USA EL JSON
-  *
-  {
-          ollasC && ollasC.map(ollasC => {
-            return(
-              <div className="cosasdeollas" key={ollasC.id}>
-                {ollasC.titulo}
-              </div>
-            )
-          })
-        }
-*/
-
 const CartaInformacion = () => {
   let params = useParams();
   var auxRegion;
   var seImprime;
+
+  /* var dato1=datosForm.titulo;
+  var dato2=datosForm.region;
+  var dato3=datosForm.direccion;
+  var dato4=datosForm.fecha;
+  var dato5=datosForm.descr;
+  var dato6=datosForm.link;
+  var dato7=datosForm.cordX;
+  var dato8=datosForm.cordY; */
+
+  /* export const getFavoritos = async (req,res) => {
+    const [result] = await pool.query(
+      "SELECT * FROM ollascomunes WHERE "
+    );
+    res.json(result);
+  } */
+
+  /* var url="http://localhost:5001";
+  $.ajax({
+      data: JSON.stringify({"imagen":dato6,"titulo":dato1,"fecha":dato4,"descripcion":dato5,"direccion":dato3,"region":dato2,"telefono":"test1","correo":"test2","cordX":dato7,"cordY":dato8}),
+      contentType: "application/json",
+      type: "GET",
+      dataType: "json",
+      url: url+"/crearollacomun",
+  })
+  .done(function( data, textStatus, jqXHR ) {
+      console.log("data del .done: ",data);
+  })
+  .fail(function( jqXHR, textStatus, errorThrown ) {
+      if ( console && console.log ) {
+          console.log( "La solicitud a fallado: " +  textStatus);
+      }
+  }); */
 
   if(params.filtro == "Filtro-region-de-Arica-y-Parinacota"){
     auxRegion = "region de Arica y Parinacota"
@@ -73,9 +93,6 @@ const CartaInformacion = () => {
     auxRegion = "region de Magallanes"
   }
   
-  
-  
-
   return (
     <>
       {
@@ -107,30 +124,39 @@ const CartaInformacion = () => {
     }
     </>
   );
-}
+  
 
-/* funcion de mostrar las cartas antes de realizar los filtros
-function CartaInformacion() {
-  return (
+  /* return (
     <>
       {
       ollasC && ollasC.map(ollasC => {
-        return(
-          <Card style={{ width: "18rem" }} key={ollasC.id}>
-          <Card.Img variant="top" src={ollasC.imagen} style={{ height: "225px" }}/>
-          <Card.Body>
-            <Card.Title>{ollasC.titulo}</Card.Title>
-            <Card.Text>
-              {ollasC.descripcion}
-            </Card.Text>
-            <Button as={Link} to={`CartaOllaComun/${ollasC.id}`} state={ollasC.id} variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-        )
+        if(auxRegion == ollasC.region || params.filtro == undefined){
+          seImprime = true;
+        }else{
+          seImprime = false;
+        }
+
+        if(seImprime){
+          return(
+            <Card style={{ width: "18rem" }} key={ollasC.id}>
+            <Card.Img variant="top" src={ollasC.imagen} style={{ height: "225px" }}/>
+            <Card.Body>
+              <Card.Title>{ollasC.titulo}</Card.Title>
+              <Card.Text>
+                {ollasC.direccion}
+              </Card.Text>
+              <Button as={Link} to={`/BuscarLugares/CartaOllaComun/${ollasC.id}`} state={ollasC.id} variant="primary">Ver más detalles</Button>
+            </Card.Body>
+          </Card>
+          )
+        }else{
+          return(<p key={ollasC.id} style={{display: 'none'}}></p>);
+        }
+        
       })
     }
     </>
-  );
-}*/
+  ); */
+}
 
 export default CartaInformacion;

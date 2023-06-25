@@ -1,4 +1,5 @@
 import {Col, Row } from "react-bootstrap";
+import $ from "jquery";
 
 import './AñadirOllaComun.css'
 import { useForm } from "react-hook-form";
@@ -7,8 +8,34 @@ function AñadirOllaComun() {
 
     const {register, formState: {errors}, handleSubmit} = useForm();
     
-    const onSubmit = (data) => {
-        console.log(JSON.stringify(data));
+    const onSubmit = (datosForm) => {
+        var dato1=datosForm.titulo;
+        var dato2=datosForm.region;
+        var dato3=datosForm.direccion;
+        var dato4=datosForm.fecha;
+        var dato5=datosForm.descr;
+        var dato6=datosForm.link;
+        var dato7=datosForm.cordX;
+        var dato8=datosForm.cordY;
+
+    
+        var url="http://localhost:5001";
+        $.ajax({
+            data: JSON.stringify({"imagen":dato6,"titulo":dato1,"fecha":dato4,"descripcion":dato5,"direccion":dato3,"region":dato2,"telefono":"test1","correo":"test2","cordX":dato7,"cordY":dato8}),
+            contentType: "application/json",
+            type: "POST",
+            dataType: "json",
+            url: url+"/crearollacomun",
+        })
+        .done(function( data, textStatus, jqXHR ) {
+            console.log("data del .done: ",data);
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if ( console && console.log ) {
+                console.log( "La solicitud a fallado: " +  textStatus);
+            }
+        });
+
         alert("Se ha añadido la olla común a la página!")
         
     }
@@ -37,21 +64,23 @@ function AñadirOllaComun() {
                     <p>Elegir región</p>
                 </Col>
                 <Col>
-                <select id="region">
-                    <option>Arica y Parinacota</option>
-                    <option>Tarapacá</option>
-                    <option>Antofagasta</option>
-                    <option>Atacama</option>
-                    <option>Coquimbo</option>
-                    <option>Valparaíso</option>
-                    <option>R. Metropolitana</option>
-                    <option>OHiggins</option>
-                    <option>Maule</option>
-                    <option>Ñuble</option>
-                    <option>Los Ríos</option>
-                    <option>Los Lagos</option>
-                    <option>Aysén</option>
-                    <option>Magallanes</option>
+                <select id="region" {...register('region')}>
+                    <option value={"region de Arica y Parinacota"}>Arica y Parinacota</option>
+                    <option value={"region de Tarapaca "}>Tarapacá</option>
+                    <option value={"region de Antofagasta"}>Antofagasta</option>
+                    <option value={"region de Atacama"}>Atacama</option>
+                    <option value={"region de Coquimbo"}>Coquimbo</option>
+                    <option value={"region de valparaiso"}>Valparaíso</option>
+                    <option value={"region metropolitana"}>R. Metropolitana</option>
+                    <option value={"region de Ohiggins"}>OHiggins</option>
+                    <option value={"region del Maule"}>Maule</option>
+                    <option value={"region del Ñuble"}>Ñuble</option>
+                    <option value={"region del Biobio"}>Biobio</option>
+                    <option value={"region de La Araucania"}>La Araucanía</option>
+                    <option value={"region de Los Rios"}>Los Ríos</option>
+                    <option value={"region de Los Lagos"}>Los Lagos</option>
+                    <option value={"region de Aysen"}>Aysén</option>
+                    <option value={"region de Magallanes"}>Magallanes</option>
                 </select>
                 </Col>
             </Row>
@@ -97,9 +126,32 @@ function AñadirOllaComun() {
                     <p>Agregar foto (opcional)</p>
                 </Col>
                 <Col>
-                    <input type="file" name="fotoEvento" id="fotoEvento"/>
+                    <input type="text" name="fotoEvento" id="fotoEvento" placeholder="Link: www.imagen.com" {...register('link', {})}/>
                 </Col>
             </Row>
+            <Row>
+                <p>Puede obtener las coordenadas en google maps</p>
+                <Col>
+                    <p>Ingrese la cordenada del mapa X</p>
+                </Col>
+                <Col>
+                    <input type="text" name="cordX" id="cordX" placeholder="30.000000000000000" {...register('cordX', {
+                        required: true
+                    })}/>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Ingrese la cordenada del mapa Y</p>
+                </Col>
+                <Col>
+                    <input type="text" name="cordY" id="cordY" placeholder="-30.000000000000000" {...register('cordY', {
+                        required: true
+                    })}/>
+                </Col>
+            </Row>
+            
+            
             <Row>
                 <Col style={{textAlign: "right"}}>
                     <button type="submit"> Registrar olla común </button>

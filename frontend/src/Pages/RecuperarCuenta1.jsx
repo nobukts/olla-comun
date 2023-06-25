@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import {Link, useNavigate} from "react-router-dom";
-import CorreosRegistrados from "/src/assets/datos/correosRegistrados.json"
+import $ from "jquery";
 
 const RecuperarCuenta1 = () => {
 
@@ -8,46 +8,33 @@ const RecuperarCuenta1 = () => {
 
     const navigate = useNavigate();
 
-    const onSubmit = (data) => {
+    const onSubmit = (datosForm) => {
 
-        //console.log("-----------------");
-        
-        /**CorreosRegistrados && CorreosRegistrados.map(CorreosRegistrados => {
-            //console.log(CorreosRegistrados.correo)
-            if(CorreosRegistrados.correo == data.correo){
-                navigate("/RecuperarCuenta2");
-            }else{
-                //console.log("no coinciden con los datos guardados");
-                return(
-                    <div>
-                        <p>NO COINCIDEN</p>
-                    </div>
-                )
+        var dato1=datosForm.correo;
+    
+        var url="http://localhost:5001";
+        $.ajax({
+            data: JSON.stringify({"email":dato1}),
+            contentType: "application/json",
+            type: "POST",
+            dataType: "json",
+            url: url+"/recuperarCuenta1",
+        })
+        .done(function( data, textStatus, jqXHR ) {
+            console.log("data del .done: ",data);
+
+            if(!data.error){navigate("/RecuperarCuenta2");}
+            else{
+                $(".testprueba").text(data.mensaje);
+                $(".testprueba").addClass("alert alert-danger");
             }
-
-
-        })**/
-
-        const aux = CorreosRegistrados.map( CorreosRegistrados => { return CorreosRegistrados.correo } ) ;
-        var i = 0;
-        var flag = false;
-        for( let correosR of aux ) {
             
-            //console.log(aux[i])
-
-            if(aux[i] == data.correo){
-                flag = true;
-                break;
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if ( console && console.log ) {
+                console.log( "La solicitud a fallado: " +  textStatus);
             }
-            i++;
-        }
-
-        if( flag ) {
-            alert("Se ha enviado el correo, redirigiendo a la siguiente pagina");
-            navigate("/RecuperarCuenta2");
-        }else{
-            alert("No se encuentra el correo en la base de datos");
-        }
+        });
 
     }
     
@@ -58,6 +45,7 @@ const RecuperarCuenta1 = () => {
         <form  className="form-formulario-Recuperar" onSubmit={ handleSubmit(onSubmit) } >
             
             <h2>Recuperar Cuenta</h2>
+            <div className="testprueba"></div>
 
             <div>
                 <p>Si ha olvidado su contraseña, le<br/>enviaremos un correo para restablecerla.</p>

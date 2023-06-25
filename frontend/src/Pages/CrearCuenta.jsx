@@ -1,14 +1,50 @@
 import { useForm } from "react-hook-form";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import "./formulario_styles.css";
+import $ from "jquery";
 
 const CrearCuenta = () => {
 
     const { register, formState: {errors} , watch, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
+    const navigate = useNavigate();
 
-        console.log(JSON.stringify(data));
+    const onSubmit = (datosForm) => {
+        var dato1=datosForm.correo;
+        var dato2=datosForm.nombre;
+        var dato3=datosForm.telefono;
+        var dato4=datosForm.contrasena;
+        /* console.log(datosForm); */
+    
+        var url="http://localhost:5001";
+        $.ajax({
+            data: JSON.stringify({"email":dato1,"nombre":dato2,"telefono":dato3,"password":dato4}),
+            contentType: "application/json",
+            type: "POST",
+            dataType: "json",
+            url: url+"/crearusuario",
+        })
+        .done(function( data, textStatus, jqXHR ) {
+            console.log("data del .done: ",data);
+            /* if(data.mensaje){
+                $("header").text(data.mensaje);
+                if(data.error){
+                    $("header").addClass("alert alert-danger");
+                }else{
+                    $("header").addClass("alert alert-primary");
+                }
+            } */
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if ( console && console.log ) {
+                console.log( "La solicitud a fallado: " +  textStatus);
+            }
+        });
+
+        
+        navigate("/");
+        /* console.log(JSON.stringify(data)); */
+        
         alert("Se ha añadido el usuario a la página!");
 
     }
@@ -22,7 +58,7 @@ const CrearCuenta = () => {
 
             <div>
                 
-                <input type="text" placeholder="Nombre" {...register('nombre', {
+                <input id="nombre" name="nombre" type="text" placeholder="Nombre" {...register('nombre', {
 
                     required: true,
                     
@@ -34,7 +70,7 @@ const CrearCuenta = () => {
             <br/>
             <div>
                 
-                <input type="text" placeholder="Correo" {...register('correo', {
+                <input id="correo" name="correo" type="text" placeholder="Correo" {...register('correo', {
 
                     required: true,
                     pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
@@ -48,7 +84,7 @@ const CrearCuenta = () => {
             <br/>
             <div>
                 
-                <input type="text" placeholder="Telefono (+56987654321)" {...register('telefono', {
+                <input id="telefono" name="telefono" type="text" placeholder="Telefono (+56987654321)" {...register('telefono', {
 
                     required: true,
                     pattern: /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/
@@ -62,7 +98,7 @@ const CrearCuenta = () => {
             <br/>
             <div>
                 
-                <input type="password" placeholder="Contraseña"  {...register('contrasena', {
+                <input id="password" name="password" type="password" placeholder="Contraseña"  {...register('contrasena', {
 
                     required: true,
                     minLength: 8
@@ -77,7 +113,7 @@ const CrearCuenta = () => {
             <div>
             
                 
-                <input type="password" placeholder="Confirmar Contraseña" {...register('confContrasena', {
+                <input id="repassword" name="repassword" type="password" placeholder="Confirmar Contraseña" {...register('confContrasena', {
 
                     required: true,
                     validate: (val = /*string*/ watch('confContrasena') ) => { 

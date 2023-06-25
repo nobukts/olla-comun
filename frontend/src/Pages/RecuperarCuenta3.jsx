@@ -1,6 +1,7 @@
 import { useForm } from "react-hook-form";
 import {Link, useNavigate} from "react-router-dom";
 import './formulario_styles.css'
+import $ from "jquery";
 
 const RecuperarCuenta3 = () => {
 
@@ -8,11 +9,39 @@ const RecuperarCuenta3 = () => {
 
     const { register, formState: {errors} , watch, handleSubmit } = useForm();
 
-    const onSubmit = (data) => {
+    const onSubmit = (datosForm) => {
+            var dato1=datosForm.newContra;
+        
+            var url="http://localhost:5001";
+            $.ajax({
+                data: JSON.stringify({"password":dato1}),
+                contentType: "application/json",
+                type: "PUT",
+                dataType: "json",
+                url: url+"/recuperarcuenta3",
+            })
+            .done(function( data, textStatus, jqXHR ) {
+                console.log("data del .done: ",data);
+                /* if(data.mensaje){
+                    $("header").text(data.mensaje);
+                    if(data.error){
+                        $("header").addClass("alert alert-danger");
+                    }else{
+                        $("header").addClass("alert alert-primary");
+                    }
+                } */
+                if(!data.error){navigate("/IniciarSesion");}
+                
+            })
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+                if ( console && console.log ) {
+                    console.log( "La solicitud a fallado: " +  textStatus);
+                }
+            });
 
-        console.log(data);
+        /* console.log(data); */
         alert("Redirigiendo a la siguiente pagina");
-        navigate("/IniciarSesion");
+        /* navigate("/IniciarSesion"); */
         
 
     }

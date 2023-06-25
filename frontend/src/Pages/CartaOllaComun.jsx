@@ -5,6 +5,7 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import { useParams } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Comentarios from "../components/comentarios/comentarios"
 
 //JSON
 import ollasC from "/src/assets/datos/OllasComunes.json";
@@ -73,47 +74,9 @@ const CartaOllaComun = () => {
                 </div>
                 <div style={{display: displayValue}}>
                   <Col className="columna">
-                  <form
-                    id="formulario"
-                    className="form-formulario-Crear"
-                    onSubmit={handleSubmit(onSubmit)}
-                  >
-                    
-                    <div className="area-texto">
-                      <h1>Crear comentario</h1>
-                      <Row>
-                        <Col><p>Nombre:</p></Col>
-                        <Col><input type="text" name="nombre" id="nombre" {...register('nombre', {
-                          required: true
-                          })}/>
-
-                          {errors.nombre?.type === 'required' && <p className="errorP">El nombre del evento es requerido</p>}
-                        </Col>
-                      </Row>
-                      
-                      <textarea
-                        name="comentario"
-                        id="comentario"
-                        cols="80"
-                        rows="10"
-                        {...register("comentario", {
-                          required: true,
-                        })}
-                      ></textarea>
-                      {errors.comentario?.type === "required" && (
-                        <p className="errorP">Escribir es requerido.</p>
-                      )}
-                    </div>
-                    <div className="boton">
-                      <button type="submit"> Crear comentario </button>
-                    </div>
-                  </form>
+                    <Comentarios></Comentarios>
                   </Col>
-                  <Col className="columna">
-                    <div className="mostrar-comentarios">
-                    <h1>Comentarios:</h1>
-                    </div>
-                  </Col>
+                  
                   
                 </div>
                 
@@ -125,5 +88,7 @@ const CartaOllaComun = () => {
     </>
   );
 };
+
+
 
 export default CartaOllaComun;
