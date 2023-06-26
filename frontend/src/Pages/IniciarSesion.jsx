@@ -95,7 +95,7 @@ const IniciarSesion = () => {
 
                     
                 </div>
-                <div>
+                <div style={{marginTop:"15px"}}>
                     <ReCAPTCHA
                         ref={captcha}
                         sitekey="6LfvpckmAAAAAI3LLFxGHkRP2BDbFiMH4s_HFWLS"

@@ -7,7 +7,7 @@ function Inicio() {
   return (
     <div>
       <Row>
-        <Col xs={7}>
+        <Col xs={12} md="7">
           <ContenedorImagen/>
         </Col>
         <Col className="info-g"> 

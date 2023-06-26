@@ -115,16 +115,6 @@ app.get("/obtenerollascomunes", jsonParser, function (req, res) {
         return;
     });
 });
-app.get("/obtenerollascomunes/:region", jsonParser, function (req, res) {
-    var id = req.params.region;
-    connection.query("SELECT * FROM ollascomunes WHERE id = ?", [id], function (error, results, fields) {
-        if (error)
-            throw error;
-        console.log(results);
-        res.send(results);
-        return;
-    });
-});
 app.listen(configuracion, function () {
     console.log("Conectando al servidor http://localhost:".concat(configuracion.port));
 });
