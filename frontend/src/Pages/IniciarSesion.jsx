@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import {Link, useNavigate} from "react-router-dom";
+import {Link, useHref, useNavigate} from "react-router-dom";
 import $ from "jquery";
 import ReCAPTCHA from "react-google-recaptcha";
 import {useRef, useState} from "react"
@@ -35,7 +35,7 @@ const IniciarSesion = () => {
                 url: url+"/iniciarsesion",
             })
             .done(function( data, textStatus, jqXHR ) {
-                console.log("data del .done: ",data);
+                /* console.log("data del .done: ",data); */
                 /* if(data.mensaje){
                     $("header").text(data.mensaje);
                     if(data.error){
@@ -44,7 +44,10 @@ const IniciarSesion = () => {
                         $("header").addClass("alert alert-primary");
                     }
                 } */
-                if(!data.error){navigate("/");}
+                if(!data.error){
+                    document.cookie = `token=${data.token}; max-age=${60*10}; path=/; samesite=strict`
+                    navigate("/");
+                }
                 else{
                     $(".error-captcha").show();
                     $(".error-captcha").text(data.mensaje);
@@ -60,7 +63,7 @@ const IniciarSesion = () => {
         }else{
             $(".error-captcha").text("Debe aceptar el captcha")
             $(".error-captcha").addClass("alert alert-danger")
-            console.log("acepta el captcha")
+            console.log("debe aceptar el captcha")
         }
     }
 

@@ -1,12 +1,30 @@
 import {Col, Row } from "react-bootstrap";
 import './NotError.css'
 import { useForm } from "react-hook-form";
+import $ from "jquery";
 
 function NotError() {
     const {register, formState: {errors}, handleSubmit} = useForm();
-    const onSubmit = (data) =>{
-        console.log(JSON.stringify(data));
-        alert("Se ha notificado al administrador del error.")
+    const onSubmit = (datosForm) =>{
+        var dato1=datosForm.nombre;
+        var dato2=datosForm.descr_error;
+    
+        var url="http://localhost:5001";
+        $.ajax({
+            data: JSON.stringify({"nombre":dato1,"descripcion":dato2}),
+            contentType: "application/json",
+            type: "POST",
+            dataType: "json",
+            url: url+"/notError",
+        })
+        .done(function( data, textStatus, jqXHR ) {
+            /* console.log("data del .done: ",data); */
+        })
+        .fail(function( jqXHR, textStatus, errorThrown ) {
+            if ( console && console.log ) {
+                console.log( "La solicitud a fallado: " +  textStatus);
+            }
+        });
     }
     return (
         <div>

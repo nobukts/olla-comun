@@ -14,7 +14,6 @@ const CrearCuenta = () => {
         var dato2=datosForm.nombre;
         var dato3=datosForm.telefono;
         var dato4=datosForm.contrasena;
-        /* console.log(datosForm); */
     
         var url="http://localhost:5001";
         $.ajax({
@@ -25,15 +24,7 @@ const CrearCuenta = () => {
             url: url+"/crearusuario",
         })
         .done(function( data, textStatus, jqXHR ) {
-            console.log("data del .done: ",data);
-            /* if(data.mensaje){
-                $("header").text(data.mensaje);
-                if(data.error){
-                    $("header").addClass("alert alert-danger");
-                }else{
-                    $("header").addClass("alert alert-primary");
-                }
-            } */
+            /* console.log("data del .done: ",data); */
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
             if ( console && console.log ) {
@@ -42,9 +33,7 @@ const CrearCuenta = () => {
         });
 
         
-        navigate("/");
-        /* console.log(JSON.stringify(data)); */
-        
+        navigate("/");        
         alert("Se ha añadido el usuario a la página!");
 
     }

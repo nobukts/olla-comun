@@ -4,7 +4,38 @@ import $ from "jquery";
 import './AñadirOllaComun.css'
 import { useForm } from "react-hook-form";
 
+function pruebaDatos(){
+    const token = document.cookie.replace('token=','')
+
+    var url="http://localhost:5001";
+    $.ajax({
+        headers:{
+        'authorization': token
+        },
+        contentType: "application/json",
+        type: "POST",
+        dataType: "json",
+        url: url+"/pruebaDatos",
+    })
+    .done(function( data, textStatus, jqXHR ) {
+        console.log("data del done: ",data)
+        if(data.error){
+            $(".formulario-olla").hide();
+            $(".tituloAOC").text("Debe iniciar sesión para poder añadir una olla común")
+            $(".tituloAOC").addClass("alert alert-danger");
+        }
+    })
+    .fail(function( jqXHR, textStatus, errorThrown ) {
+        if ( console && console.log ) {
+            console.log( "La solicitud a fallado: " +  textStatus);
+        }
+    });
+
+}
+
 function AñadirOllaComun() {
+
+    pruebaDatos();
 
     const {register, formState: {errors}, handleSubmit} = useForm();
     
@@ -17,18 +48,20 @@ function AñadirOllaComun() {
         var dato6=datosForm.link;
         var dato7=datosForm.cordX;
         var dato8=datosForm.cordY;
+        var dato9=datosForm.telefono;
+        var dato10=datosForm.correo;
 
     
         var url="http://localhost:5001";
         $.ajax({
-            data: JSON.stringify({"imagen":dato6,"titulo":dato1,"fecha":dato4,"descripcion":dato5,"direccion":dato3,"region":dato2,"telefono":"test1","correo":"test2","cordX":dato7,"cordY":dato8}),
+            data: JSON.stringify({"imagen":dato6,"titulo":dato1,"fecha":dato4,"descripcion":dato5,"direccion":dato3,"region":dato2,"telefono":dato9,"correo":dato10,"cordX":dato7,"cordY":dato8}),
             contentType: "application/json",
             type: "POST",
             dataType: "json",
             url: url+"/crearollacomun",
         })
         .done(function( data, textStatus, jqXHR ) {
-            console.log("data del .done: ",data);
+            /* console.log("data del .done: ",data); */
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
             if ( console && console.log ) {
@@ -43,7 +76,7 @@ function AñadirOllaComun() {
     return (
     <div className="cont-olla">
         <Row>
-            <h1>Añadir olla común</h1>
+            <h1 className="tituloAOC">Añadir olla común</h1>
         </Row>
         <form className="formulario-olla" onSubmit={handleSubmit(onSubmit)}>
             <Row>
@@ -138,6 +171,7 @@ function AñadirOllaComun() {
                     <input type="text" name="cordX" id="cordX" placeholder="30.000000000000000" {...register('cordX', {
                         required: true
                     })}/>
+                    {errors.descr?.type === 'required' && <p className="errorP">La cordenada X es requerida.</p>}
                 </Col>
             </Row>
             <Row>
@@ -148,6 +182,37 @@ function AñadirOllaComun() {
                     <input type="text" name="cordY" id="cordY" placeholder="-30.000000000000000" {...register('cordY', {
                         required: true
                     })}/>
+                    {errors.descr?.type === 'required' && <p className="errorP">La cordenada Y es requerida.</p>}
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Ingrese el telefono de contacto</p>
+                </Col>
+                <Col>
+                    <input type="text" name="telefono" id="telefono" placeholder="Telefono (+56987654321)" {...register('telefono', {
+                        required: true,
+                        pattern: /^(\+?56)?(\s?)(0?9)(\s?)[98765432]\d{7}$/
+                    })}/>
+
+                    {errors.telefono?.type === 'required' && <p className="errorP" >El telefono es requerido</p> }
+                    {errors.telefono?.type === 'pattern' && <p className="errorP" >El formato del telefono es incorrecto (+56987654321)</p> }
+
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p>Ingrese el correo de contacto</p>
+                </Col>
+                <Col>
+                    <input type="text" name="correo" id="correo" placeholder="Correo" {...register('correo', {
+                        required: true,
+                        pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/i
+                    })}/>
+
+                    {errors.correo?.type === 'required' && <p className="errorP" >El correo es requerido</p> }
+                    {errors.correo?.type === 'pattern' && <p className="errorP" >El formato del email es incorrecto</p> }
+
                 </Col>
             </Row>
             

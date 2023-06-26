@@ -3,6 +3,8 @@ const express = require('express');
 const mysql=require("mysql");
 const iprequest=require("request-ip");
 const app=express();
+//jwt Token
+const jwt = require("jsonwebtoken");
 //cors
 const cors=require('cors');
 const bodyParser = require('body-parser');
@@ -56,19 +58,52 @@ app.post("/iniciarsesion",jsonParser,(req:any, res:any) => {
             res.send( JSON.stringify({"mensaje":"El correo y/o contraseña no existe","error":true} ));
             return;
         }
-        res.send( JSON.stringify({"mensaje":"Se ha iniciado sesion correctamente","error":false} ));
+        const id = results[0].id;
+        const token = jwt.sign({id}, "tokenSecreto", {expiresIn: 60 * 10});
+        res.send( JSON.stringify({"mensaje":"Se ha iniciado sesion correctamente","error":false,"token":token} ));
         return;
     });
     
 });
 
+app.post("/pruebaDatos", jsonParser,(req:any,res:any) => {
+    const token = req.headers['authorization']
+    jwt.verify(token as string, "tokenSecreto", (err:any, user:any) => {
+        if(err){
+            res.send(JSON.stringify({"mensaje":"Sesion no iniciada", "error":true}))
+        }else{
+            res.send(JSON.stringify({"mensaje":"Sesion iniciada", "error":false,"token": user}))
+            
+        }
+    })
+})
+
+app.post("/esAdmin", jsonParser,(req:any,res:any) => {
+    const token = req.headers['authorization']
+    jwt.verify(token as string, "tokenSecreto", (err:any, user:any) => {
+        if(err){
+            res.send(JSON.stringify({"mensaje":"Sesion no iniciada", "error":true}))
+        }else{
+            connection.query("SELECT * FROM `usuarios` WHERE id=?",[user.id],function(error:any,results:any,fields:any){
+                if (error) throw error;
+                if(results.length == 0){
+                    res.send( JSON.stringify({"mensaje":"Usted no es admin","error":true} ));
+                    return;
+                }
+                res.send( JSON.stringify({"mensaje":"Se ha iniciado correctamente","error":false,"token":token,"admin":results[0].esAdmin} ));
+                return;
+            });
+        }
+    })
+})
+
+/* Al cambiar la pagina, se pueda almacenar el email para los recuperar cuenta */
 let emailAuxiliar:string
 function correoRecuperar(email:string,flag:boolean){
     if(flag){
         emailAuxiliar = email
         return;
     }
-    /* console.log(emailAuxiliar) */
     return emailAuxiliar;
 }
 
@@ -88,8 +123,6 @@ app.post("/recuperarCuenta1",jsonParser,(req:any, res:any) => {
     
 });
 
-
-
 app.put("/recuperarcuenta3",jsonParser,(req:any, res:any) => {
     let email = correoRecuperar("",false);
     let password=req.body.password;
@@ -100,6 +133,16 @@ app.put("/recuperarcuenta3",jsonParser,(req:any, res:any) => {
         res.send( JSON.stringify({"mensaje":"Se ha cambiado la contraseña","error":false} ));
     });
     
+});
+
+app.delete("/eliminarOllaComun",jsonParser,(req:any, res:any) => {
+    let id=req.body.id;
+    
+    connection.query("DELETE FROM `ollascomunes` WHERE id=?;",[id],function(error:any,results:any,fields:any){
+        if (error) throw error;
+        res.send( JSON.stringify({"mensaje":"Se ha encontrado el id","error":false} ));
+        return;
+    });
 });
 
 app.post("/crearollacomun",jsonParser,(req:any, res:any) => {
@@ -125,10 +168,23 @@ app.post("/crearollacomun",jsonParser,(req:any, res:any) => {
 app.get("/obtenerollascomunes",jsonParser,(req:any,res:any) => {
     connection.query("SELECT * FROM ollascomunes",function(error:any,results:any,fields:any){
         if(error) throw error;
+        //Se envian todas las ollas comunes
         res.send( results );
         return;
     })
 })
+
+app.post("/notError",jsonParser,(req:any, res:any) => {
+    let nombre=req.body.nombre;
+    let descripcion=req.body.descripcion;
+    
+    connection.query("INSERT INTO errores(nombre, descripcion) VALUES (?,?)",[nombre,descripcion],function(error:any,results:any,fields:any){
+        if (error) throw error;
+        res.send( JSON.stringify({"mensaje":"Se ha creado la notificacion de error","error":false} ));
+        return;
+    });
+    
+});
 
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
