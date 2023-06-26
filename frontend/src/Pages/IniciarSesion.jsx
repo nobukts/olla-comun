@@ -45,6 +45,11 @@ const IniciarSesion = () => {
                     }
                 } */
                 if(!data.error){navigate("/");}
+                else{
+                    $(".error-captcha").show();
+                    $(".error-captcha").text(data.mensaje);
+                    $(".error-captcha").addClass("alert alert-danger");
+                }
                 
             })
             .fail(function( jqXHR, textStatus, errorThrown ) {
