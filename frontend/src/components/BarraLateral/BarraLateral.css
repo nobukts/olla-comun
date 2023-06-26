@@ -1,13 +1,12 @@
 .sidebar {
     background-color: rgb(20, 20, 20) !important;
-    width: 220px;
     
 }
 
 .lateral {
     background-color: rgb(20, 20, 20) !important;
-    min-height: calc(100vh - 141px);
-    max-height: auto;
+    min-height: 100%;
+    max-width: fit-content;
 }
 
 .texto {

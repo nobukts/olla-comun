@@ -122,6 +122,25 @@ app.post("/crearollacomun",jsonParser,(req:any, res:any) => {
     
 });
 
+app.get("/obtenerollascomunes",jsonParser,(req:any,res:any) => {
+    connection.query("SELECT * FROM ollascomunes",function(error:any,results:any,fields:any){
+        if(error) throw error;
+        res.send( results );
+        return;
+    })
+})
+
+app.get("/obtenerollascomunes/:region",jsonParser,(req:any,res:any) => {
+    let id = req.params.region;
+
+    connection.query("SELECT * FROM ollascomunes WHERE id = ?", [id],function(error:any,results:any,fields:any){
+        if(error) throw error;
+        console.log(results)
+        res.send( results );
+        return;
+    })
+})
+
 app.listen(configuracion, () => {
     console.log(`Conectando al servidor http://localhost:${configuracion.port}`)
 })

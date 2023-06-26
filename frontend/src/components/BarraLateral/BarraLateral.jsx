@@ -4,12 +4,29 @@ import "./BarraLateral.css";
 //React
 import { Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 function BarraLateral() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
   return (
     <div className="lateral">
+      <Button variant="primary" className="d-lg-none" style={{borderRadius: "0rem", marginLeft:"20px"}} onClick={handleShow}>
+        Abrir filtros
+      </Button>
+      
+      
+      <Offcanvas style={{backgroundColor: "rgb(20, 20, 20)", width: '280px'}} show={show} onHide={handleClose} responsive="lg">
+        <div className="lateral">
+          
       <Nav className="col-md-12 d-md-block bg-light sidebar">
-        
+        <Button variant="primary" style={{marginLeft:"10px", marginTop:"20px"}} className="d-lg-none" onClick={handleClose}>
+          Cerrar filtros
+        </Button>
         <div className="texto">
           <h2>Filtro de busqueda</h2>
           <Nav.Link style={{color: 'white',fontSize: '12px'}} as={Link} to="/BuscarLugares/Filtro-region-de-Arica-y-Parinacota">Región de Arica y Parinacota</Nav.Link>
@@ -30,8 +47,13 @@ function BarraLateral() {
           <Nav.Link style={{color: 'white',fontSize: '12px'}} as={Link} to="/BuscarLugares/Filtro-region-de-Magallanes">Región de Magallanes</Nav.Link>
           <Nav.Link style={{color: 'white',fontSize: '12px'}} as={Link} to="/BuscarLugares">Borrar filtros</Nav.Link>
         </div>
+        </Nav>
         
-      </Nav>
+        </div>
+      </Offcanvas>
+        
+        
+      
     </div>
   );
 }
