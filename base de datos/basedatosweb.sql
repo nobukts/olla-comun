@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-06-2023 a las 01:44:18
+-- Tiempo de generación: 27-06-2023 a las 02:27:32
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -64,8 +64,7 @@ INSERT INTO `ollascomunes` (`id`, `imagen`, `titulo`, `fecha`, `descripcion`, `d
 (4, 'https://th.bing.com/th/id/OIP.7qxmFOhVu1SbS06H0oHIzAHaGC?pid=ImgDet&rs=1', 'Olla comun puerto cisnes', '2023-06-08', 'Esta olla comun queda en la region de aysen, test de la descripcion', 'Cisnes, Región Aysén del General Carlos Ibáñez del Campo, Chile', 'region de Aysen', '+56933334444', 'puertocisnes@a.a', -44.7276, -72.681),
 (7, 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Montaje_de_Arica.jpg/375px-Montaje_de_Arica.jpg', 'Olla comun Arica', '2023-06-26', 'Esta es la olla común de Arica', 'Dr. Juan Noe, Arica, Arica y Parinacota', 'region de Arica y Parinacota', '+56977776666', 'arica@a.a', -18.4781, -70.3124),
 (8, 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/R%C3%ADo_%C3%91uble%2C_regi%C3%B3n_de_%C3%91uble%2C_Chile.jpg/375px-R%C3%ADo_%C3%91uble%2C_regi%C3%B3n_de_%C3%91uble%2C_Chile.jpg', 'Olla comun del Ñuble', '2023-06-27', 'Esta es la olla común del Ñuble', 'Dieciocho de Septiembre 539, 3800708 Diguillin, Chillán, Ñuble', 'region del Ñuble', '+56944445555', 'ñuble@a.a', -36.6064, -72.1042),
-(15, '', 'asdas', '2023-06-01', '13123123123', '123123123', 'region de valparaiso', '+56921115984', 'bryan@a.a', 30, -30),
-(16, '', 'asdasd', '2023-06-01', 'asdasd', 'asdasdas', 'region de Arica y Parinacota', '+56921115984', 'ñúble@a.a', 23, 23);
+(15, '', 'Test', '2023-06-01', 'Test descripcion', 'Test direccion', 'region de valparaiso', '+56921115984', 'test@a.a', 30, -30);
 
 -- --------------------------------------------------------
 
@@ -89,8 +88,7 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`id`, `correo`, `nombre`, `telefono`, `contrasenya`, `esAdmin`) VALUES
 (23, 'bryan@a.a', 'byran', '+56931115984', 'dd79ce625fea1e77b6e6b5f61bd7684389dacd4078a3e793c0b30a8a430f3c746560c7f10dbddd3087abc1b602def70b39a52b9dcdfa88e9456794474fc8914e', 0),
 (24, 'jefte@a.a', 'jefte', '+56988888888', 'dd79ce625fea1e77b6e6b5f61bd7684389dacd4078a3e793c0b30a8a430f3c746560c7f10dbddd3087abc1b602def70b39a52b9dcdfa88e9456794474fc8914e', 0),
-(25, 'jose@a.a', 'jose', '+56977777777', 'dd79ce625fea1e77b6e6b5f61bd7684389dacd4078a3e793c0b30a8a430f3c746560c7f10dbddd3087abc1b602def70b39a52b9dcdfa88e9456794474fc8914e', 1),
-(26, 'augusto@a.a', 'Augusto', '+56988887777', '4bb409fda9e6c5226deb27438cf8a76e49c4e17bba93c68f454cd117db70eb3a305a55a9ebf9756db30efa9dfe7a70f79f39e39ae0ba407ec6650250b2f68563', 0);
+(25, 'jose@a.a', 'jose', '+56977777777', 'dd79ce625fea1e77b6e6b5f61bd7684389dacd4078a3e793c0b30a8a430f3c746560c7f10dbddd3087abc1b602def70b39a52b9dcdfa88e9456794474fc8914e', 1);
 
 --
 -- Índices para tablas volcadas
@@ -122,7 +120,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `errores`
 --
 ALTER TABLE `errores`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `ollascomunes`

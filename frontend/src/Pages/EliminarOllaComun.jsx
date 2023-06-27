@@ -57,7 +57,7 @@ function NotError() {
             url: url+"/eliminarOllaComun",
         })
         .done(function( data, textStatus, jqXHR ) {
-            console.log("data del .done: ",data);
+            /* console.log("data del .done: ",data); */
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {
             if ( console && console.log ) {

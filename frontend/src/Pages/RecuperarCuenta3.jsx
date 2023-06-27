@@ -21,7 +21,7 @@ const RecuperarCuenta3 = () => {
                 url: url+"/recuperarcuenta3",
             })
             .done(function( data, textStatus, jqXHR ) {
-                console.log("data del .done: ",data);
+                /* console.log("data del .done: ",data); */
                 /* if(data.mensaje){
                     $("header").text(data.mensaje);
                     if(data.error){

@@ -18,6 +18,7 @@ function NotError() {
             url: url+"/notError",
         })
         .done(function( data, textStatus, jqXHR ) {
+            alert(data.mensaje);
             /* console.log("data del .done: ",data); */
         })
         .fail(function( jqXHR, textStatus, errorThrown ) {

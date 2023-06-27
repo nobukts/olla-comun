@@ -65,7 +65,7 @@ const CartaOllaComun = () => {
               <div className="contenedorEsp" key={ollasC.id}>
                 <Row>
                   <Col className="columna izq" lg="5">
-                    <img src={ollasC.imagen} alt="as" />
+                    <img src={ollasC.imagen} alt="imagen" />
                   </Col>
                   <Col className="columna" lg="6">
                     <h1>{ollasC.titulo}</h1>

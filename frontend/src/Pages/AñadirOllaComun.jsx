@@ -18,7 +18,7 @@ function pruebaDatos(){
         url: url+"/pruebaDatos",
     })
     .done(function( data, textStatus, jqXHR ) {
-        console.log("data del done: ",data)
+        /* console.log("data del done: ",data) */
         if(data.error){
             $(".formulario-olla").hide();
             $(".tituloAOC").text("Debe iniciar sesión para poder añadir una olla común")

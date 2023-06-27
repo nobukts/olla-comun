@@ -138,7 +138,7 @@ app.put("/recuperarcuenta3",jsonParser,(req:any, res:any) => {
 app.delete("/eliminarOllaComun",jsonParser,(req:any, res:any) => {
     let id=req.body.id;
     
-    connection.query("DELETE FROM `ollascomunes` WHERE id=?;",[id],function(error:any,results:any,fields:any){
+    connection.query("DELETE FROM `ollascomunes` WHERE id=?",[id],function(error:any,results:any,fields:any){
         if (error) throw error;
         res.send( JSON.stringify({"mensaje":"Se ha encontrado el id","error":false} ));
         return;

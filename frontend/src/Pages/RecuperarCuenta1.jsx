@@ -21,7 +21,7 @@ const RecuperarCuenta1 = () => {
             url: url+"/recuperarCuenta1",
         })
         .done(function( data, textStatus, jqXHR ) {
-            console.log("data del .done: ",data);
+            /* console.log("data del .done: ",data); */
 
             if(!data.error){navigate("/RecuperarCuenta2");}
             else{
